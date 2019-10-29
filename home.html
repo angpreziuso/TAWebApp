@@ -1,0 +1,205 @@
+<!--Acknowledgements & References: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_start_page&stacked=h-->
+
+<!DOCTYPE html>
+<html lang="en">
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Lato", sans-serif
+    }
+    
+    .w3-bar,
+    h1,
+    button {
+        font-family: "Montserrat", sans-serif
+    }
+    
+    .table {
+        text-align: center;
+    }
+    
+    .fa-edit,
+    .fa-comments,
+    .fa-user-circle-o,
+    .fa-handshake-o,
+    .fa-coffee {
+        font-size: 200px
+    }
+</style>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-purple" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Join</a>
+
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="w3-container w3-purple w3-center" style="padding:128px 16px">
+        <h1 class="w3-margin w3-jumbo">JMU Computer Science</h1>
+        <p class="w3-xlarge">TA Hours</p>
+        <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Login</button>
+        <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Join</button>
+    </header>
+
+    <!-- First Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-twothird">
+                <h1>Who</h1>
+                <h5 class="w3-padding-32"> The TAs are students hired by professors who have previously taken the class in order to help new students</h5>
+
+                <p class="w3-text-grey">Some of the TAs for the CS Department are: Courtney Taylor, Teddy Pugh, William Krzyzkowski, Maddie Hince, Zeru Tadesse, Maggie Duke, Grant Showalter, Ryan Showalter, Maddie Brower, Virginia Olchevski, Avery Higgins, Megan Gilbert, Emma
+                    Macaluso, Cullen O'Hara, Jeremy Kesterson, AJ Snarr, Andrew Lee, Matt Williams, Hannah Ripley, Nick Morris, Alex Castro, Austin Lam, Nick Morris, Abby Gardner, Emma Macaluso, Rebecca Woods, Chelsea Le Sage, Cindy Zastudil, and Reece
+                    Adkins.
+                </p>
+                <table class="table" style="width:100%">
+                    <tr>
+                        <th>CS101</th>
+                        <th>CS149</th>
+                        <th>Prof/Time</th>
+                        <th>CS159</th>
+                        <!-- <th>Prof/Time</th> -->
+                        <th>CS227</th>
+                        <th>CS261</th>
+                    </tr>
+                    <tr>
+                        <td>Avery Higgins</td>
+                        <td>Cullen O'Hara</td>
+                        <!-- <td></td> -->
+                        <td>Maddie Hince</td>
+                        <td>Matt Williams</td>
+                        <td>Courtney Taylor</td>
+                    </tr>
+                    <tr>
+                        <td>Chelsea Le Sage</td>
+                        <td>Megan Gilber</td>
+                        <td>Hannah Ripley</td>
+                        <td>Alex Castro</td>
+                        <td>AJ Snarr</td>
+                    </tr>
+                    <tr>
+                        <td>Cynthia Zastudil</td>
+                        <td>Jeremy Kesterson</td>
+                        <td>Zeru Tadesse</td>
+                    </tr>
+                    <tr>
+                        <td>Rebecca Woods</td>
+                        <td>Virginia Olchevski</td>
+
+                    </tr>
+                    <tr>
+                        <td>Teddy Pugh</td>
+                        <td>Maddie Brower</td>
+
+                    </tr>
+                    <tr>
+                        <td>Grant Showalter</td>
+                        <td>Reece Adkins</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="w3-third w3-center">
+                <i class="fa fa-user-circle-o w3-padding-64 w3-text-purple"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Grid -->
+    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-third w3-center">
+                <i class="fa fa-edit w3-padding-64 w3-text-purple w3-margin-right"></i>
+            </div>
+
+            <div class="w3-twothird">
+                <h1>Why</h1>
+                <h5 class="w3-padding-32">Why have TA Hours?</h5>
+
+                <p class="w3-text-grey">Explain WHY.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Third Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-twothird">
+                <h1>How</h1>
+                <h5 class="w3-padding-32">How does this APP work?</h5>
+
+                <p class="w3-text-grey">Explain this website and how it works.</p>
+            </div>
+
+            <div class="w3-third w3-center">
+                <i class="fa fa-handshake-o w3-padding-64 w3-text-purple"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fourth Grid -->
+    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-third w3-center">
+                <i class="fa fa-comments w3-padding-64 w3-text-purple w3-margin-right"></i>
+            </div>
+
+            <div class="w3-twothird">
+                <h1>Get Invloved</h1>
+                <h5 class="w3-padding-32">Do you want to be come a TA?</h5>
+
+                <p class="w3-text-grey">How to get involved in a TA position.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+        <h1 class="w3-margin w3-xlarge">Quote of the day: if it breaks... you're one step closer.</h1>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+        <div class="w3-xlarge w3-padding-32">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </div>
+    </footer>
+
+    <script>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
