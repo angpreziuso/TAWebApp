@@ -1,5 +1,6 @@
 <!--Acknowledgements & References: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_start_page&stacked=h
                                    https://www.w3schools.com/howto/howto_css_login_form.asp
+                                   https://www.w3schools.com/howto/howto_css_signup_form.asp
                                     -->
 
 <!DOCTYPE html>
@@ -195,7 +196,6 @@
     <header class="w3-container w3-purple w3-center" style="padding:128px 16px">
         <h1 id="JMUCS" class="w3-margin w3-jumbo">JMU Computer Science</h1>
         <p id="JMUCS" class="w3-xlarge">TA Hours</p>
-        <!-- <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Login</button> -->
         <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="document.getElementById('id01').style.display='block'">Login</button>
 
         <div id="id01" class="modal">
@@ -217,8 +217,8 @@
                             <input type="checkbox" checked="checked" name="remember">Remember me
                     </label>
                     <br>
-                    <button type="submit">Login</button>
                     <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    <button type="submit">Login</button>
                     <br> <span class="psw"><a href="#">Forgot password?</a></span>
 
                     <div class="container" style="background-color: white">
@@ -228,7 +228,6 @@
 
             </form>
         </div>
-        <!-- <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Join</button> -->
         <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="document.getElementById('id02').style.display='block'">Sign Up</button>
 
         <div id="id02" class="modal">
@@ -262,10 +261,7 @@
         </div>
 
         <script>
-            // Get the modal
             var modal = document.getElementById('id01');
-
-            // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
