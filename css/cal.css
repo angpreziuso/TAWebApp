@@ -2,10 +2,10 @@ body {
     font-family: "Lucida Sans Unicode", Arial, sans-serif;
     line-height: 1.4;
     font-size: 12px;
-    background: black url(images/bg.jpg) repeat-x;
+    background: white url(images/bg.jpg) repeat-x;
     margin: 0;
     padding: 0;
-    color: white;
+    color: black;
 }
 
 
@@ -23,38 +23,6 @@ a:hover {
 #wrap {
     width: 800px;
     margin: 20px auto;
-}
-
-#header {
-    background: url(images/header.png) no-repeat;
-    height: 130px;
-}
-
-#header h1 {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 50px 0 0 40px;
-    font-weight: 100;
-    color: #fff;
-    line-height: 25px;
-}
-
-#header h1 a {
-    text-decoration: none;
-    color: #fff;
-}
-
-#header h1 a:hover {
-    text-decoration: none;
-    border-bottom: 1px solid #fff;
-    color: #fff;
-}
-
-#header h2 {
-    padding: 2px 0 0 40px;
-    margin: 0;
-    color: #efefef;
-    font-weight: 100;
 }
 
 #menu {
@@ -85,7 +53,7 @@ a:hover {
 }
 
 #menu ul li a:hover {
-    color: #fff;
+    color: black;
     background: url(images/menuover.png) repeat-x;
 }
 
@@ -102,12 +70,17 @@ a:hover {
     margin-right: 10px;
 }
 
-#content h2 {
+
+/* #content h2 {
     margin: 0;
     line-height: 30px;
     font-size: 19px;
     font-weight: 100;
     letter-spacing: -1px;
+} */
+
+#content h2 {
+    text-align: center;
 }
 
 #content h3 {
@@ -138,7 +111,8 @@ a:hover {
 }
 
 #calendar th {
-    text-align: center;
+    text-align: left;
+    font-size: 15px;
 }
 
 #calendar td {
@@ -280,4 +254,10 @@ pre {
 
 #footer a:hover {
     text-decoration: underline;
+}
+
+.w3-bar,
+h1,
+button {
+    font-family: "Montserrat", sans-serif;
 }
