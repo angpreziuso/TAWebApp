@@ -55,6 +55,7 @@ button:hover {
 .w3-text-purple,
 .w3-hover-text-purple:hover {
     color: #450084 !important;
+    opacity: 50%;
 }
 
 #JMUCS {
