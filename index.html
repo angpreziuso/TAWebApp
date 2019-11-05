@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 
 <body>
 
@@ -26,7 +26,10 @@
     <div class="w3-top">
         <div class="w3-bar w3-white w3-card w3-left-align w3-large">
             <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-purple w3-large w3-purple" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-purple">Home</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Home</a>
+            <a href="cal.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Calendar</a>
+            <a href="scheduleReq.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Schedule Request</a>
+            <a href="forum.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Forum</a>
         </div>
     </div>
 
@@ -41,7 +44,7 @@
             <form class="modal-content animate" action="/action_page.php" method="post">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                    <img src="avatar.png" alt="Avatar" class="avatar">
+                    <img src="pictures/avatar.png" alt="Avatar" class="avatar">
                 </div>
 
                 <div class="container">
@@ -75,6 +78,10 @@
                     <h1>Sign Up</h1>
                     <p>Please fill in this form to create an account.</p>
                     <hr>
+                    <button id="student" type="button" class="Student">Student</button>
+                    <button id="ta" type="button" class="TA">TA</button>
+                    <button id="admin" type="button" class="Admin">Admin</button>
+                    <br>
                     <label for="email"><b>Email</b></label>
                     <input type="text" placeholder="Enter Email" name="email" required>
 
@@ -232,7 +239,7 @@
     </div>
 
     <div class="w3-container w3-white w3-center w3-padding-16">
-        <img src="cise-logo.png" alt="CISE Logo" /> <br>
+        <img src="pictures/cise-logo.png" alt="CISE Logo" /> <br>
     </div>
 
     <!-- Footer -->
