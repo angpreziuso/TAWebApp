@@ -8,6 +8,7 @@ html {
 }
 
 #questionButton {
+    padding: 0%;
     margin-bottom: 15px;
     justify-content: center;
 }
@@ -44,6 +45,7 @@ html {
 
 .categoryModule {
     background-color: white;
+    width: 100%;
     color: black;
     overflow: none;
     margin-top: 50px;
@@ -77,6 +79,8 @@ input {
     margin-right: 10px;
 }
 
+
+
 #details {
     padding-top: 25px;
     display: flex;
@@ -90,10 +94,11 @@ input {
 }
 
 .modalFormButtons {
-    padding-top: 100px;
+    padding-top: 15px;
     display: flex;
     justify-content: flex-end;
 }
+
 
 #modal-content {}
 
@@ -120,15 +125,18 @@ input {
 }
 
 .forumPad {
+    width: 100%;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-left: 5px;
-    padding-right: 5px;
+    
+   
 }
+
 
 .forumMargin {
     margin-bottom: 10px;
 }
+
 
 .forumTable {
     width: 100%;
@@ -137,9 +145,13 @@ input {
 }
 
 .forumTable th {
-    padding: 5px;
+    /* padding: 5px; */
     color: #808080;
     /* border: 1px solid black; */
+}
+
+div.row.forumPad {
+    padding-left: 30px;
 }
 
 .forumTable td {
@@ -201,3 +213,12 @@ a:hover {
     font-weight: 500;
     text-decoration: none;
 }
+
+
+div#modalQuestionPresent.modal {
+    padding-top: 0%;
+}
+
+.submitbutton {
+    padding: 0%;
+} 

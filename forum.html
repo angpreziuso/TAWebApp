@@ -80,7 +80,7 @@
             <div class="col-lg-4">
 
             </div>
-        </div>
+    
 
         <div class="row forumPad">
             <table class="forumTable">
@@ -121,10 +121,13 @@
                 </tr>
             </table>
         </div>
+    </div>
 
         <div id="newTopic">
             <a href="#" id="discussionButton" class="btn btn-primary themeButton" onclick="document.getElementById('modalDiscussionPresent').style.display='block'">Add a new discussion</a>
         </div>
+
+
         <div class="modalWrapper">
             <div id="modalDiscussionPresent" class="modal">
                 <form class="modal-content animate" action="/action_page.php" method="post">
@@ -139,7 +142,7 @@
 
                         <div class="modalFormButtons">
                             <button type="button" id= "cancel" onclick="document.getElementById('modalDiscussionPresent').style.display='none'" class="cancelbtn">Cancel</button>
-                            <button type="submit">Submit</button>
+                            <button class="submitbutton" type="submit">Submit</button>
                         </div>
 
                     </div>
