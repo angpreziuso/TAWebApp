@@ -1,0 +1,212 @@
+body, html {
+    background-color: #f2f2f2;
+}
+
+
+.w3-top {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: purple;
+}
+
+.box {
+  /* position: absolute;
+  transform: translate(350%, 65%); */
+  background: #f2f2f2;
+  /* top: 10%; */
+}
+
+#questionButton {
+    margin-bottom: 15px;
+}
+
+.box select {
+    color:purple;
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    border: none;
+    font-size: 20px;
+    outline: none;
+}
+
+#classes{
+    text-align: center;
+}
+
+.classWrapper {
+    text-align: center;
+}
+
+.paginationArrow {
+    color: gray;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.className {
+    font-size: 2.0em;
+    padding-top: 25px;
+    text-align: center;
+}
+
+.categoryModule {
+    background-color :white;
+    color: black;
+    overflow: none;
+    margin-top: 50px;
+}
+
+input {
+    width: 90%;
+}
+
+#modalPresent {
+    width: 50%;
+    height: 50%;
+    background:#f2f2f2;
+    opacity: 0.95;
+    position: absolute;
+    transform: translate(50%, 25%); 
+    top: 0;
+}
+
+#details { 
+    padding-top: 25px;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+}
+
+#detailsTextArea {
+
+}
+
+#detailsLabel {
+    padding-right: 25px;
+    padding-bottom: 40px;
+}
+
+.modalFormButtons {
+    padding-top: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#modal-content {
+
+}
+
+.container {
+    padding: 16px;
+    width: 100%;
+    height: 100%;;
+}
+
+#newTopic
+{
+    width: 100;
+    height: 50;
+    align-items: center;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.forumPad {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.forumMargin{
+    margin-bottom: 10px;
+}
+
+.forumTable {
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+}
+
+.forumTable th
+{
+    padding: 5px;
+    color: #808080;
+    /* border: 1px solid black; */
+}
+
+.forumTable td {
+    padding: 5px
+}
+
+.forumTable tr {
+    border: 1px solid #f2f2f2;
+}
+
+.forumTable a:hover {
+    font-weight: normal;
+}
+
+
+h1 {
+    font-size: 1.7em;
+    color: #562e72;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+.pullLeft {
+    float: left;
+   display: inline-block;
+}
+
+.pullRight {
+    float: right;
+    display: inline-block;
+   
+}
+
+.vMiddle {
+    display: inline-block;
+    position: relative;
+    margin: auto;
+    vertical-align: middle;
+}
+
+
+
+.columnPad
+{
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.paginationBar {
+    padding: 15px;
+}
+
+a {
+    color: #663399;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #562e72;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+
