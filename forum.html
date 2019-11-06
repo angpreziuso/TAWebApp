@@ -67,13 +67,16 @@
 
     <div class="row categoryModule">
             <div class="col-lg-12 columnPad">
-                <div class="pullLeft">
-                    <h1>Category Name</h1>
-                </div>
-
-                <div class="pullRight">
-                    <a href="#" id="questionButton" class="btn btn-primary themeButton">Ask a question</a>
-                </div>
+                
+                    <div class="categoryWrapper">
+                        <h1>Help with P1</h1>
+                        <!-- <a href="#" id="questionButton" class="btn btn-primary themeButton">Ask a question</a> -->
+                        <div id="newQuestion">
+                            <a href="#" id="questionButton" class="btn btn-primary themeButton" onclick="document.getElementById('modalPresent').style.display='block'">Ask a Question</a>
+                        </div>
+                    </div>
+                   
+                
             </div>
             <div class="col-lg-4">
 
@@ -84,7 +87,7 @@
             <table class="forumTable">
                 <thead>
                     <th>
-                        Discussion
+                        Question
                     </th>
                     <th>
                         Author
@@ -95,10 +98,10 @@
                 </thead>
                 <tr class="forumModule">
                     <td>
-                        <a href="#">Discussion name here</a>
+                        <a href="#">Question summary Here</a>
                     </td>
                     <td>
-                        2
+                        ehrlicjd
                     </td>
                     <td class="pullRight">
                         3
@@ -107,12 +110,12 @@
                 </tr>
                 <tr class="forumModule">
                     <td>
-                        <a href="#">Discussion name here</a>
+                        <a href="#">Question summary Here</a>
                     </td>
                     <td>
-                        2
+                        mattewtd
                     </td>
-                    <td class="pullRight">
+                    <td class>
                         3
                     </td>
 
@@ -120,7 +123,6 @@
             </table>
         </div>
 
-        <!-- onclick="document.getElementById('modalPresent').style.display='block'" -->
         <div id="newTopic">
             <a href="#" id="questionButton" class="btn btn-primary themeButton" onclick="document.getElementById('modalPresent').style.display='block'">Add a new discussion</a>
         </div>
@@ -137,7 +139,7 @@
                         </div>
 
                         <div class="modalFormButtons">
-                            <button type="button" onclick="document.getElementById('modalPresent').style.display='none'" class="cancelbtn">Cancel</button>
+                            <button type="button" id= "cancel" onclick="document.getElementById('modalPresent').style.display='none'" class="cancelbtn">Cancel</button>
                             <button type="submit">Submit</button>
                         </div>
 
