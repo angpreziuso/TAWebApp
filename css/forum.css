@@ -1,21 +1,10 @@
-body, html {
+body,
+html {
     background-color: #f2f2f2;
 }
 
-
-.w3-top {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: purple;
-}
-
 .box {
-  /* position: absolute;
-  transform: translate(350%, 65%); */
-  background: #f2f2f2;
-  /* top: 10%; */
+    background: #f2f2f2;
 }
 
 #questionButton {
@@ -23,7 +12,7 @@ body, html {
 }
 
 .box select {
-    color:purple;
+    color: purple;
     padding: 10px;
     width: 200px;
     height: 50px;
@@ -32,7 +21,7 @@ body, html {
     outline: none;
 }
 
-#classes{
+#classes {
     text-align: center;
 }
 
@@ -53,7 +42,7 @@ body, html {
 }
 
 .categoryModule {
-    background-color :white;
+    background-color: white;
     color: black;
     overflow: none;
     margin-top: 50px;
@@ -66,22 +55,18 @@ input {
 #modalPresent {
     width: 50%;
     height: 50%;
-    background:#f2f2f2;
+    background: #f2f2f2;
     opacity: 0.95;
     position: absolute;
-    transform: translate(50%, 25%); 
+    transform: translate(50%, 25%);
     top: 0;
 }
 
-#details { 
+#details {
     padding-top: 25px;
-   display: flex;
-   flex-direction: row;
-   justify-content: flex-start;
-}
-
-#detailsTextArea {
-
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 #detailsLabel {
@@ -95,18 +80,16 @@ input {
     justify-content: flex-end;
 }
 
-#modal-content {
-
-}
+#modal-content {}
 
 .container {
     padding: 16px;
     width: 100%;
-    height: 100%;;
+    height: 100%;
+    ;
 }
 
-#newTopic
-{
+#newTopic {
     width: 100;
     height: 50;
     align-items: center;
@@ -121,7 +104,7 @@ input {
     padding-right: 5px;
 }
 
-.forumMargin{
+.forumMargin {
     margin-bottom: 10px;
 }
 
@@ -131,8 +114,7 @@ input {
     border: 1px solid black;
 }
 
-.forumTable th
-{
+.forumTable th {
     padding: 5px;
     color: #808080;
     /* border: 1px solid black; */
@@ -149,7 +131,6 @@ input {
 .forumTable a:hover {
     font-weight: normal;
 }
-
 
 h1 {
     font-size: 1.7em;
@@ -169,14 +150,11 @@ h4 {
 }
 
 .pullLeft {
-    float: left;
-   display: inline-block;
+    display: inline-block;
 }
 
 .pullRight {
-    float: right;
     display: inline-block;
-   
 }
 
 .vMiddle {
@@ -186,10 +164,7 @@ h4 {
     vertical-align: middle;
 }
 
-
-
-.columnPad
-{
+.columnPad {
     margin-top: 15px;
     margin-left: 5px;
 }
@@ -208,5 +183,3 @@ a:hover {
     font-weight: 500;
     text-decoration: none;
 }
-
-

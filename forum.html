@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"i ntegrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" i ntegrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="./css/forum.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="./js/forum.js"></script>
-    <title>Document</title>
-</head>
-<body>
-        <!-- Navbar -->
-        <div class="w3-top">
-            <div class="w3-bar w3-white w3-card w3-left-align w3-large">
-                <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-purple w3-large w3-purple" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-                <a href="./index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Home</a>
-                <a href="./cal.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Calendar</a>
-                <a href="./scheduleReq.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Schedule Request</a>
-                <a href="./forum.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Forum</a>
-            </div>
-        </div>
-<!-- Start of forum layout -->
+    <title>forum</title>
 
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-purple w3-large w3-purple" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            <a href="cal.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Calendar</a>
+            <a href="scheduleReq.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Schedule Request</a>
 
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 paginationBar forumModule forumMargin">
-            <a href="#">Home</a> 
-            <i class="fa fa-chevron-circle-right paginationArrow"></i>  
-            <a href="#">Category</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="#">Discussion</a> 
         </div>
     </div>
+</head>
 
-    <div class="classWrapper">
-                <div>
-                    <h1 id="className">No class selected</h1>
-                </div>
-        
-                    <div class="box">
-                        <select id="classes" onchange="getSelectedValue()">  
+<body>
+    <!-- Start of forum layout -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 paginationBar forumModule forumMargin">
+                <a href="#">Home</a>
+                <i class="fa fa-chevron-circle-right paginationArrow"></i>
+                <a href="#">Category</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="#">Discussion</a>
+            </div>
+        </div>
+
+        <div class="classWrapper">
+            <div>
+                <h1 id="className">No class selected</h1>
+            </div>
+
+            <div class="box">
+                <select id="classes" onchange="getSelectedValue()">  
                                 <option value="" selected disabled hidden>Choose A Class</option>
                             <option value="CS 101">CS 101</option>
                             <option value="CS 149">CS 149</option>
@@ -52,31 +56,30 @@
                             <option value="CS 261">CS 261</option>
                         </select>
 
-                        <script>
-                        function getSelectedValue()
-                        {
-                            varSelectedValue = document.getElementById("classes").value
-                            document.getElementById("className").innerHTML = varSelectedValue;
-                        }
-                        </script>
-                    </div>
-    </div>
+                <script>
+                    function getSelectedValue() {
+                        varSelectedValue = document.getElementById("classes").value
+                        document.getElementById("className").innerHTML = varSelectedValue;
+                    }
+                </script>
+            </div>
+        </div>
 
     <div class="row categoryModule">
             <div class="col-lg-12 columnPad">
                 <div class="pullLeft">
-                    <h1>Category Name</h1> 
-                </div>   
-            
+                    <h1>Category Name</h1>
+                </div>
+
                 <div class="pullRight">
                     <a href="#" id="questionButton" class="btn btn-primary themeButton">Ask a question</a>
                 </div>
             </div>
-        <div class="col-lg-4">
-           
+            <div class="col-lg-4">
+
             </div>
         </div>
-    
+
         <div class="row forumPad">
             <table class="forumTable">
                 <thead>
@@ -87,66 +90,65 @@
                         Author
                     </th>
                     <th class="pullRight">
-                    Replies
+                        Replies
                     </th>
                 </thead>
                 <tr class="forumModule">
-                     <td>
+                    <td>
                         <a href="#">Discussion name here</a>
-                     </td>
-                     <td>
+                    </td>
+                    <td>
                         2
                     </td>
                     <td class="pullRight">
                         3
                     </td>
-    
+
                 </tr>
                 <tr class="forumModule">
-                        <td>
-                           <a href="#">Discussion name here</a>
-                        </td>
-                        <td>
-                           2
-                       </td>
-                       <td class="pullRight">
-                           3
-                       </td>
-       
-                   </tr>
+                    <td>
+                        <a href="#">Discussion name here</a>
+                    </td>
+                    <td>
+                        2
+                    </td>
+                    <td class="pullRight">
+                        3
+                    </td>
+
+                </tr>
             </table>
         </div>
 
         <!-- onclick="document.getElementById('modalPresent').style.display='block'" -->
         <div id="newTopic">
-                <a href="#" id="questionButton" class="btn btn-primary themeButton" onclick="document.getElementById('modalPresent').style.display='block'">Add a new discussion</a>
+            <a href="#" id="questionButton" class="btn btn-primary themeButton" onclick="document.getElementById('modalPresent').style.display='block'">Add a new discussion</a>
         </div>
-    <div class="modalWrapper">
-        <div id="modalPresent" class="modal">
-            <form class="modal-content animate" action="/action_page.php" method="post">
-                <div class="container">
-                    <label for="Topic Summary"><b>Topic Summary</b></label>
-                    <input type="text" placeholder="Enter one sentence describing your problem" name="topic" required><br>
-    
-                    <div id="details">
-                        <label id="detailsLabel" for="details"><b>Details</b></label>
-                        <textarea id="detailsTextArea" name="questionDetails" rows="8" cols="80" form="modal-content"></textarea> <br>
-                    </div>
-                    
-                    <div class="modalFormButtons">
-                        <button type="button" onclick="document.getElementById('modalPresent').style.display='none'" class="cancelbtn">Cancel</button>
-                        <button type="submit">Submit</button>
-                    </div>
-                   
-                </div>
-                    <!-- <textarea name="Details" rows="10" cols="5" form="modal-content"></textarea> <br> -->
-            </form>
-        </div>
-    </div>
-        
-   
-</div>
-</body>
+        <div class="modalWrapper">
+            <div id="modalPresent" class="modal">
+                <form class="modal-content animate" action="/action_page.php" method="post">
+                    <div class="container">
+                        <label for="Topic Summary"><b>Topic Summary</b></label>
+                        <input type="text" placeholder="Enter one sentence describing your problem" name="topic" required><br>
 
+                        <div id="details">
+                            <label id="detailsLabel" for="details"><b>Details</b></label>
+                            <textarea id="detailsTextArea" name="questionDetails" rows="8" cols="80" form="modal-content"></textarea> <br>
+                        </div>
+
+                        <div class="modalFormButtons">
+                            <button type="button" onclick="document.getElementById('modalPresent').style.display='none'" class="cancelbtn">Cancel</button>
+                            <button type="submit">Submit</button>
+                        </div>
+
+                    </div>
+                    <!-- <textarea name="Details" rows="10" cols="5" form="modal-content"></textarea> <br> -->
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</body>
 
 </html>
