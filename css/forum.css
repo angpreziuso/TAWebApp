@@ -53,9 +53,19 @@ input {
     width: 90%;
 }
 
-#modalPresent {
+#modalQuestionPresent {
     width: 75%;
     height: 75%;
+    background: #f2f2f2;
+    opacity: 0.95;
+    position: absolute;
+    transform: translate(10%, 15%);
+    top: 0;
+}
+
+#modalDisucssionPresent {
+    width: 50%;
+    height: 50%;
     background: #f2f2f2;
     opacity: 0.95;
     position: absolute;

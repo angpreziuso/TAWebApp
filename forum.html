@@ -70,9 +70,8 @@
                 
                     <div class="categoryWrapper">
                         <h1>Help with P1</h1>
-                        <!-- <a href="#" id="questionButton" class="btn btn-primary themeButton">Ask a question</a> -->
                         <div id="newQuestion">
-                            <a href="#" id="questionButton" class="btn btn-primary themeButton" onclick="document.getElementById('modalPresent').style.display='block'">Ask a Question</a>
+                            <a href="#" id="questionButton" class="btn btn-primary themeButton" onclick="document.getElementById('modalQuestionPresent').style.display='block'">Ask a Question</a>
                         </div>
                     </div>
                    
@@ -124,14 +123,38 @@
         </div>
 
         <div id="newTopic">
-            <a href="#" id="questionButton" class="btn btn-primary themeButton" onclick="document.getElementById('modalPresent').style.display='block'">Add a new discussion</a>
+            <a href="#" id="discussionButton" class="btn btn-primary themeButton" onclick="document.getElementById('modalDiscussionPresent').style.display='block'">Add a new discussion</a>
         </div>
         <div class="modalWrapper">
-            <div id="modalPresent" class="modal">
+            <div id="modalDiscussionPresent" class="modal">
                 <form class="modal-content animate" action="/action_page.php" method="post">
                     <div class="container">
                         <label for="Topic Summary"><b>Topic Summary</b></label>
-                        <input type="text" placeholder="Enter one sentence describing your problem" name="topic" required><br>
+                        <input type="text" placeholder="Please enter a brief description of your topic..." name="topicDescription" required><br>
+
+                        <!-- <div id="details">
+                            <label id="detailsLabel" for="details"><b>Details</b></label>
+                            <textarea id="detailsTextArea" name="questionDetails" rows="8" cols="80" form="modal-content"></textarea> <br>
+                        </div> -->
+
+                        <div class="modalFormButtons">
+                            <button type="button" id= "cancel" onclick="document.getElementById('modalDiscussionPresent').style.display='none'" class="cancelbtn">Cancel</button>
+                            <button type="submit">Submit</button>
+                        </div>
+
+                    </div>
+                    <!-- <textarea name="Details" rows="10" cols="5" form="modal-content"></textarea> <br> -->
+                </form>
+            </div>
+        </div>
+
+
+        <div class="modalWrapper">
+            <div id="modalQuestionPresent" class="modal">
+                <form class="modal-content animate" action="/action_page.php" method="post">
+                    <div class="container">
+                        <label for="Question Summary"><b>Question Description</b></label>
+                        <input type="text" placeholder="Please enter a brief discription of your question" name="questionDescription" required><br>
 
                         <div id="details">
                             <label id="detailsLabel" for="details"><b>Details</b></label>
@@ -139,12 +162,11 @@
                         </div>
 
                         <div class="modalFormButtons">
-                            <button type="button" id= "cancel" onclick="document.getElementById('modalPresent').style.display='none'" class="cancelbtn">Cancel</button>
+                            <button type="button" id= "cancel" onclick="document.getElementById('modalQuestionPresent').style.display='none'" class="cancelbtn">Cancel</button>
                             <button type="submit">Submit</button>
                         </div>
 
                     </div>
-                    <!-- <textarea name="Details" rows="10" cols="5" form="modal-content"></textarea> <br> -->
                 </form>
             </div>
         </div>
