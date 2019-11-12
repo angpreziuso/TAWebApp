@@ -7,6 +7,9 @@
         https://www.w3schools.com/howto/howto_css_signup_form.asp
 
 -->
+<?php
+    session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
