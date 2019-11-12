@@ -25,6 +25,18 @@ $class_descriptions  = array(
     "This teaches about stuff going on under the hood"
 );
 
+$topic_titles = array (
+    "PA1",
+    "PA2",
+    "PA3",
+    "PA4",
+    "Lab1",
+    "Lab2",
+    "Lab3",
+    "Lab4",
+    "Lab5"
+);
+
 $topics = array(
     "Help I dont know the thing",
     "My code is fine but it doesnt work",
@@ -41,15 +53,13 @@ $topics = array(
 function gen_rand_topic_row() {
     global $topicID;
     global $classes;
-    global $class_titles;
+    global $topic_titles;
     global $topics;
-    $which_class = rand(0, count($classes) - 1);
-    $which_topic = rand(0, count($topics) - 1);
     return array( 
         $topicID++, 
-        $class_titles[$which_class], 
-        $topics[$which_topic], 
-        $classes[$which_class] 
+        $topic_titles[rand(0, count($topic_titles) - 1)], 
+        $topics[rand(0, count($topics) - 1)], 
+        $classes[rand(0, count($classes) - 1)] 
     );
 }
 
@@ -65,7 +75,7 @@ query("DELETE FROM Course");
 
 // Add class data
 for($i = 0; $i < count($classes); $i++) {
-    $secID = 0;
+    $secID = rand(0, 3);
     $update = "INSERT INTO Course (courseID, secID, name, courseDesc) VALUES(
         " . $classes[$i] . ",
         " . $secID . ",
@@ -88,7 +98,8 @@ for($i = 0; $i < 20; $i++) {
     query($update);
 }
 
-$result = query("SELECT * FROM Topic");
+$result = query("SELECT * FROM Topic INNER JOIN Course USING (courseID) ORDER BY topicID ASC");
+
 if(mysqli_num_rows($result) == 0) {
     echo "<h3>No rows returned from the database</h3>";
 } else {
