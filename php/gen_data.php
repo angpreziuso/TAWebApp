@@ -1,18 +1,20 @@
 <?php
 
+
+
 // This is a demo of writing a PHP file to interact with our Database
 
 $dbLink = mysqli_connect('localhost', 'root', '');
 mysqli_select_db($dbLink, 'clefDB');
 
 $topicID = 0;
-$classes = array( 101, 149, 159, 227, 240, 261 );
+$classes = array( 101, 149, 159, 227, 261 );
 $class_titles  = array(
     "Introduction to Computer Science",
     "Introduction to Programming",
     "Advanced Computer Programming",
     "Discrete Structures I",
-    "Algorithms and Data Structures",
+    // "Algorithms and Data Structures",
     "Computer Systems I"
 );
 
@@ -21,7 +23,7 @@ $class_descriptions  = array(
     "This class teaches the fundamentals of programming",
     "This class teaches advanced topics of programming",
     "This teaches the fundamentals of discrete math in relation to computer science",
-    "This is the first actual computer science class",
+    // "This is the first actual computer science class",
     "This teaches about stuff going on under the hood"
 );
 
@@ -50,6 +52,30 @@ $topics = array(
     "What is a pointer?"
 );
 
+// 101, 149, 159, 227, 261
+$nTAs = array(6, 6, 3, 2, 2);
+$tas = array(
+    "Avery Higgins",
+    "Chelsea Le Sage",
+    "Cynthia Zastudil",
+    "Rebecca Woods",
+    "Teddy Pugh",
+    "Grant Showalter",
+    "Cullen O'Hara",
+    "Megan Gilbert",
+    "Jeremy Kesterson",
+    "Virginia Olchevski",
+    "Maddie Brower",
+    "Reece Adkins",
+    "Maddie Hince",
+    "Hannah Ripley",
+    "Zeru Tadesse",
+    "Matt Williams",
+    "Alex Castro",
+    "Courtney Taylor",
+    "AJ Snarr",
+); 
+
 function gen_rand_topic_row() {
     global $topicID;
     global $classes;
@@ -64,26 +90,50 @@ function gen_rand_topic_row() {
 }
 
 function query($query){
+    echo $query . "</br>";
     global $dbLink;
     $result = mysqli_query($dbLink, $query) or die(mysqli_error($dbLink));
     return $result;
 }
 
-// Clear data for demo
-query("DELETE FROM Topic");
-query("DELETE FROM Course");
+
+
+// Clear data or add more? Unless specified, delete all data first
+$clean = isset($_GET["clean"]) ? $_GET["clean"] : true;
+if($clean) {
+    query("DELETE FROM Topic");
+    query("DELETE FROM Course");
+    query("DELETE FROM UserPermissions");
+    query("DELETE FROM UserRole");
+    query("DELETE FROM ClefUser");
+}
+
+// Add Role Data 
+query("INSERT INTO UserRole (roleID, name, roleDesc) VALUES (1, \"student\", \"JMU Computer Science Student\")");
+query("INSERT INTO UserRole (roleID, name, roleDesc) VALUES (2, \"TA\", \"JMU Computer Science Teaching Assistant\")");
+query("INSERT INTO UserRole (roleID, name, roleDesc) VALUES (3, \"professor\", \"JMU Computer Science Professor\")");
+query("INSERT INTO UserRole (roleID, name, roleDesc) VALUES (4, \"admin\", \"TA System Administrator\")");
 
 // Add class data
-for($i = 0; $i < count($classes); $i++) {
-    $secID = rand(0, 3);
+$course_offset = 0;
+$secID = 0;
+for($i = 0; $i < count($tas); $i++) {
+    
     $update = "INSERT INTO Course (courseID, secID, name, courseDesc) VALUES(
-        " . $classes[$i] . ",
+        " . $classes[$course_offset] . ",
         " . $secID . ",
-        \"" . $class_titles[$i] . "\",
-        \"" . $class_descriptions[$i] . "\"
+        \"" . $class_titles[$course_offset] . "\",
+        \"" . $class_descriptions[$course_offset] . "\"
     )";
     query($update);
+    if ($nTAs[$course_offset] - 1 == $secID) {
+        $course_offset++;
+        $secID = 0;
+    } else {
+        $secID++;
+    }
 }
+
 
 // Generate topic data
 for($i = 0; $i < 20; $i++) {
@@ -98,27 +148,25 @@ for($i = 0; $i < 20; $i++) {
     query($update);
 }
 
-$result = query("SELECT * FROM Topic INNER JOIN Course USING (courseID) ORDER BY topicID ASC");
-
-if(mysqli_num_rows($result) == 0) {
-    echo "<h3>No rows returned from the database</h3>";
-} else {
-    // Print the column names as the headers of a table
-    echo "<table><tr>";
-    for($i = 0; $i < mysqli_num_fields($result); $i++) {
-        $field_info = mysqli_fetch_field($result);
-        echo "<th>{$field_info->name}</th>";
+// Generate TA user data
+$course_offset = 0;
+$num_written = 0;
+for ($i = 0; $i < count($tas); $i++) {
+    query("INSERT INTO ClefUser (userID, email, name, password) VALUES (".$i.", \"email".$i."\", \"".$tas[$i]."\",\"password\")");
+    query("INSERT INTO UserPermissions (userID, roleID, courseID) VALUES (".$i.", 2, ".$classes[$course_offset].")");
+    if ($nTAs[$course_offset] - 1 == $num_written) {
+        $course_offset++;
+        $num_written = 0;
+    } else {
+        $num_written++;
     }
-
-    // Print the data
-    while($row = mysqli_fetch_row($result)) {
-        echo "<tr>";
-        foreach($row as $_column) {
-            echo "<td>{$_column}</td>";
-        }
-        echo "</tr>";
-    }
-    echo "</table>";
 }
+
+// Add user and userPermissions data (at the moment this only supports TAS)
+for ($i = 0; $i < count($tas); $i++) {
+    
+}
+
+echo "Done";
 
 ?>

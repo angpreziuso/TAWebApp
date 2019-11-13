@@ -12,11 +12,11 @@ const get = async(str) => {
         credentials: "same-origin"
     })
     const res_json = await response.json()
-    console.log(res_json)
     return res_json
 }
 
 function db_demo() {
     console.log("Calling the database..")
-    get("php/query_handler.php?table=Topic")
+    const result = get("php/query_handler.php?table=Topic")
+    console.log(result)
 }

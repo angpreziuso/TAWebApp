@@ -51,8 +51,10 @@ CREATE TABLE Topic (
 CREATE TABLE UserPermissions (
     userID INTEGER(10) NOT NULL, 
     roleID INTEGER(10) NOT NULL,
+    courseID INTEGER(10), 
     FOREIGN KEY (userID) REFERENCES ClefUser (userID), 
     FOREIGN KEY (roleID) REFERENCES UserRole (roleID), 
+    FOREIGN KEY (courseID) REFERENCES Course (courseID),
     PRIMARY KEY (userID, roleID)
 );
 
