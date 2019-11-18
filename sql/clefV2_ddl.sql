@@ -1,0 +1,108 @@
+-- Database DDL for CLEF Schema
+
+DROP DATABASE IF EXISTS CLEF; 
+CREATE DATABASE CLEF CHARACTER SET UTF8 COLLATE utf8_general_ci; 
+USE CLEF;
+
+-- Base tables, no foreign keys
+
+CREATE TABLE CLEF_USER (
+    UserID INTEGER(10) NOT NULL,
+    UserName varchar(25) NOT NULL, 
+    UserEmail varchar(50) NOT NULL,
+    Password varchar(50) NOT NULL,
+    UNIQUE (UserName),
+    PRIMARY KEY (UserID)
+);
+
+CREATE TABLE COURSE (
+    CourseID INTEGER(10) NOT NULL, 
+    PRIMARY KEY (CourseID)
+);
+
+CREATE TABLE ROLE (
+    RoleID INTEGER(10) NOT NULL, 
+    RoleDesc varchar(255),
+    PRIMARY KEY (RoleID)
+);
+
+CREATE TABLE SHIFT (
+    ShiftID INTEGER(10) NOT NULL, 
+    ShiftDate DATE NOT NULL,
+    PRIMARY KEY (ShiftID)
+);
+
+-- Tables with parents and children
+
+CREATE TABLE SECTION (
+    SectionID INTEGER(10) NOT NULL, 
+    CourseID INTEGER(10) NOT NULL,
+    FOREIGN KEY (CourseID) REFERENCES COURSE (CourseID),
+    PRIMARY KEY (SectionID, CourseID)
+);
+
+CREATE TABLE TOPIC (
+    TopicID INTEGER(10) NOT NULL, 
+    CourseID INTEGER(10) NOT NULL,
+    TopicDesc varchar(255),
+    FOREIGN KEY (CourseID) REFERENCES COURSE (CourseID),
+    PRIMARY KEY (TopicID)
+);
+
+CREATE TABLE USER_ROLE (
+    UserID INTEGER(10) NOT NULL,
+    RoleID INTEGER(10) NOT NULL, 
+    StartDate DATE NOT NULL, 
+    EndDate DATE,
+    FOREIGN KEY (UserID) REFERENCES CLEF_USER (UserID),
+    FOREIGN KEY (RoleID) REFERENCES ROLE (RoleID),
+    PRIMARY KEY (UserID, RoleID)
+);
+
+-- Child tables
+
+CREATE TABLE ENROLLMENT (
+    UserID INTEGER(10) NOT NULL,
+    CourseID INTEGER(10) NOT NULL,
+    SectionID INTEGER(10) NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES CLEF_USER (UserID),
+    FOREIGN KEY (CourseID) REFERENCES SECTION (CourseID),
+    FOREIGN KEY (SectionID) REFERENCES SECTION (SectionID),    
+    PRIMARY KEY (UserID, CourseID, SectionID)
+);
+
+CREATE TABLE SHIFT_DUTY (
+    UserID INTEGER(10) NOT NULL,
+    ShiftID INTEGER(10) NOT NULL,
+    RoleID INTEGER(10) NOT NULL,
+    BEGIN_TIME TIME(6),
+    END_TIME TIME(6),
+    FOREIGN KEY (ShiftID) REFERENCES SHIFT (ShiftID),
+    FOREIGN KEY (RoleID) REFERENCES USER_ROLE (RoleID),
+    FOREIGN KEY (UserID) REFERENCES USER_ROLE (UserID),    
+    PRIMARY KEY (UserID, ShiftID)
+);
+
+-- Absolute Unit.
+
+CREATE TABLE SERV_REQ (
+    ServReqID INTEGER(10) NOT NULL,
+    CourseID INTEGER(10) NOT NULL, 
+    FilingUserID INTEGER(10) NOT NULL,
+    FilingUserRole INTEGER(10) NOT NULL, 
+    AddrUserID INTEGER(10),
+    AddrUserRole INTEGER(10), 
+    TopicID INTEGER(10) NOT NULL,
+    TimeFiled TIMESTAMP NOT NULL,
+    TimeOpened TIMESTAMP,
+    TimeClosed TIMESTAMP,
+    Status CHAR(3) NOT NULL,
+    ServReqDesc VARCHAR(255) NOT NULL,
+    FOREIGN KEY (CourseID) REFERENCES COURSE (CourseID),
+    FOREIGN KEY (FilingUserID) REFERENCES USER_ROLE (UserID),
+    FOREIGN KEY (FilingUserRole) REFERENCES USER_ROLE (RoleID),
+    FOREIGN KEY (AddrUserID) REFERENCES USER_ROLE (UserID),
+    FOREIGN KEY (AddrUserRole) REFERENCES USER_ROLE (RoleID),
+    FOREIGN KEY (TopicID) REFERENCES TOPIC (TopicID),
+    PRIMARY KEY (ServReqID)
+);
