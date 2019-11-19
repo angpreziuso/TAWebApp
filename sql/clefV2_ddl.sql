@@ -7,10 +7,12 @@ USE CLEF;
 -- Base tables, no foreign keys
 
 CREATE TABLE CLEF_USER (
-    UserID INTEGER(10) NOT NULL,
+    UserID INTEGER(10) NOT NULL AUTO_INCREMENT,
     UserName varchar(25) NOT NULL, 
     UserEmail varchar(50) NOT NULL,
     Password varchar(50) NOT NULL,
+    FirstName varchar(255) NOT NULL, 
+    LastName varchar(255) NOT NULL,
     UNIQUE (UserName),
     PRIMARY KEY (UserID)
 );
@@ -21,13 +23,13 @@ CREATE TABLE COURSE (
 );
 
 CREATE TABLE ROLE (
-    RoleID INTEGER(10) NOT NULL, 
+    RoleID INTEGER(10) NOT NULL AUTO_INCREMENT, 
     RoleDesc varchar(255),
     PRIMARY KEY (RoleID)
 );
 
 CREATE TABLE SHIFT (
-    ShiftID INTEGER(10) NOT NULL, 
+    ShiftID INTEGER(10) NOT NULL AUTO_INCREMENT, 
     ShiftDate DATE NOT NULL,
     PRIMARY KEY (ShiftID)
 );
@@ -35,14 +37,14 @@ CREATE TABLE SHIFT (
 -- Tables with parents and children
 
 CREATE TABLE SECTION (
-    SectionID INTEGER(10) NOT NULL, 
+    SectionID INTEGER(10) NOT NULL AUTO_INCREMENT, 
     CourseID INTEGER(10) NOT NULL,
     FOREIGN KEY (CourseID) REFERENCES COURSE (CourseID),
     PRIMARY KEY (SectionID, CourseID)
 );
 
 CREATE TABLE TOPIC (
-    TopicID INTEGER(10) NOT NULL, 
+    TopicID INTEGER(10) NOT NULL AUTO_INCREMENT, 
     CourseID INTEGER(10) NOT NULL,
     TopicDesc varchar(255),
     FOREIGN KEY (CourseID) REFERENCES COURSE (CourseID),
@@ -86,7 +88,7 @@ CREATE TABLE SHIFT_DUTY (
 -- Absolute Unit.
 
 CREATE TABLE SERV_REQ (
-    ServReqID INTEGER(10) NOT NULL,
+    ServReqID INTEGER(10) NOT NULL AUTO_INCREMENT,
     CourseID INTEGER(10) NOT NULL, 
     FilingUserID INTEGER(10) NOT NULL,
     FilingUserRole INTEGER(10) NOT NULL, 
