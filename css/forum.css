@@ -8,13 +8,16 @@ html {
 }
 
 #questionButton {
-    padding: 0%;
+    padding: 1%;
     margin-bottom: 15px;
     justify-content: center;
+    color: white;
+    background-color: #562e72;
+    border-color: #562e72;
 }
 
 .box select {
-    color: purple;
+    color: #562e72;
     padding: 10px;
     width: 200px;
     height: 50px;
@@ -60,6 +63,7 @@ div.row.categoryModule a:hover {
     color: black;
     overflow: none;
     margin-top: 50px;
+    align-content: center;
 }
 
 input {
@@ -90,8 +94,6 @@ input {
     margin-right: 10px;
 }
 
-
-
 #details {
     padding-top: 25px;
     display: flex;
@@ -110,8 +112,14 @@ input {
     justify-content: flex-end;
 }
 
-
 #modal-content {}
+
+#discussionButton {
+    margin-right: 2%;
+    color: white;
+    background: #562e72;
+    border-color: #562e72;
+}
 
 .container {
     padding: 16px;
@@ -139,15 +147,11 @@ input {
     width: 100%;
     padding-top: 15px;
     padding-bottom: 15px;
-    
-   
 }
-
 
 .forumMargin {
     margin-bottom: 10px;
 }
-
 
 .forumTable {
     width: 100%;
@@ -227,11 +231,10 @@ h4 {
     text-decoration: none;
 }
 
-
 div#modalQuestionPresent.modal {
     padding-top: 0%;
 }
 
 .submitbutton {
     padding: 0%;
-} 
+}
