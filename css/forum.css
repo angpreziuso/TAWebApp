@@ -23,6 +23,17 @@ html {
     outline: none;
 }
 
+div.row.categoryModule a:hover {
+    color: purple;
+}
+
+
+#dropdown1 {
+    /* display: none; */
+}
+
+
+
 #classes {
     text-align: center;
 }
@@ -203,12 +214,14 @@ h4 {
     padding: 15px;
 }
 
-a {
+.categoryTitle {
     color: #663399;
     text-decoration: none;
 }
 
-a:hover {
+
+
+.categoryTitle:hover {
     color: #562e72;
     font-weight: 500;
     text-decoration: none;
