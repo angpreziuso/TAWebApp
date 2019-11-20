@@ -24,8 +24,7 @@
     <!-- Navbar -->
     <div class="w3-top">
         <div class="w3-bar w3-white w3-card w3-left-align w3-large">
-            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-purple w3-large w3-purple"
-                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-purple w3-large w3-purple" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
                     class="fa fa-bars"></i></a>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Home</a>
             <a href="cal.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Calendar</a>
@@ -38,8 +37,7 @@
     <header class="w3-container w3-purple w3-center" style="padding:128px 16px">
         <h1 id="JMUCS" class="w3-margin w3-jumbo">JMU Computer Science</h1>
         <p id="JMUCS" class="w3-xlarge">TA Hours</p>
-        <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top"
-            onclick="toggle_login()">Login</button>
+        <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="toggle_login()">Login</button>
 
         <div id="id01" class="modal">
 
@@ -48,6 +46,16 @@
                     <span onclick="toggle_login()" class="close" title="Close Modal">&times;</span>
                     <img src="pictures/avatar.png" alt="Avatar" class="avatar">
                 </div>
+                <br>
+                <div>
+                    <label id="positionLabel">Position? </label>
+                    <select id="myList">
+                                <option value = "1">Student</option>
+                                <option value = "2">TA</option>
+                                <option value = "3">Admin</option>
+                    </select>
+                </div>
+                </p>
 
                 <div class="container">
                     <label for="uname"><b>Username</b></label>
@@ -80,10 +88,21 @@
                     <h1>Sign Up</h1>
                     <p>Please fill in this form to create an account.</p>
                     <hr>
-                    <button id="student" type="button" class="Student">Student</button>
-                    <button id="ta" type="button" class="TA">TA</button>
-                    <button id="admin" type="button" class="Admin">Admin</button>
+                    <div>
+                        <label id="positionLabel">Position? </label>
+
+                        <select id="myList">
+                                        <option value = "1">Student</option>
+                                        <option value = "2">TA</option>
+                                        <option value = "3">Admin</option>
+                            </select>
+                    </div>
+                    </p>
                     <br>
+
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" required>
+
                     <label for="email"><b>Email</b></label>
                     <input type="text" placeholder="Enter Email" name="email" required>
 
@@ -112,17 +131,12 @@
             <div class="w3-twothird">
                 <h1>Who</h1>
                 <h5 class="w3-padding-32">
-                    The TAs are students hired by professors who have previously taken the class in order to help new
-                    students
+                    The TAs are students hired by professors who have previously taken the class in order to help new students
                 </h5>
 
                 <p class="w3-text-grey">
-                    Some of the TAs for the CS Department are: Courtney Taylor, Teddy Pugh, William Krzyzkowski, Maddie
-                    Hince, Zeru Tadesse, Maggie Duke, Grant Showalter, Ryan Showalter, Maddie Brower, Virginia
-                    Olchevski, Avery Higgins, Megan Gilbert, Emma Macaluso, Cullen
-                    O'Hara, Jeremy Kesterson, AJ Snarr, Andrew Lee, Matt Williams, Hannah Ripley, Nick Morris, Alex
-                    Castro, Austin Lam, Nick Morris, Abby Gardner, Emma Macaluso, Rebecca Woods, Chelsea Le Sage, Cindy
-                    Zastudil, and Reece Adkins.
+                    Some of the TAs for the CS Department are: Courtney Taylor, Teddy Pugh, William Krzyzkowski, Maddie Hince, Zeru Tadesse, Maggie Duke, Grant Showalter, Ryan Showalter, Maddie Brower, Virginia Olchevski, Avery Higgins, Megan Gilbert, Emma Macaluso, Cullen
+                    O'Hara, Jeremy Kesterson, AJ Snarr, Andrew Lee, Matt Williams, Hannah Ripley, Nick Morris, Alex Castro, Austin Lam, Nick Morris, Abby Gardner, Emma Macaluso, Rebecca Woods, Chelsea Le Sage, Cindy Zastudil, and Reece Adkins.
                 </p>
 
                 <br>
@@ -188,9 +202,7 @@
                 <h5 class="w3-padding-32">Why have TA Hours?</h5>
 
                 <p class="w3-text-light-grey">
-                    TA Hours were put together in order to help students that need more assistance in a given class
-                    outside of class. Sometimes people need a little bit more practice, or need a little push into jump
-                    starting an idea in regards to a class project, that's
+                    TA Hours were put together in order to help students that need more assistance in a given class outside of class. Sometimes people need a little bit more practice, or need a little push into jump starting an idea in regards to a class project, that's
                     why we have TA hours.
                 </p>
             </div>
@@ -205,12 +217,8 @@
                 <h5 class="w3-padding-32">How does TA Hours work?</h5>
 
                 <p class="w3-text-grey">
-                    In order to use this TA system you have to Join as a student or TA. If you are not hired by the CS
-                    department, you will not be able to create a TA account. Also, only certain faculty will have the
-                    ability to join as admin. As a student you will be able
-                    to see who is working for each class and time. You will be add yourself to the queue for the given
-                    class you need help with with whatever TA is assigned to that class. TA will be able to set their
-                    availability and see their schedule
+                    In order to use this TA system you have to Join as a student or TA. If you are not hired by the CS department, you will not be able to create a TA account. Also, only certain faculty will have the ability to join as admin. As a student you will be able
+                    to see who is working for each class and time. You will be add yourself to the queue for the given class you need help with with whatever TA is assigned to that class. TA will be able to set their availability and see their schedule
                     for the week.
                 </p>
             </div>
@@ -233,9 +241,7 @@
                 <h5 class="w3-padding-32">Do you want to be come a TA?</h5>
 
                 <p class="w3-text-light-grey">
-                    Keep an eye out on the JMU CS ListServ. TA Applications get send out on the ListServ and the process
-                    begins. Really think about why you would want to be a TA and how beneficial it is to people who
-                    really need help.
+                    Keep an eye out on the JMU CS ListServ. TA Applications get send out on the ListServ and the process begins. Really think about why you would want to be a TA and how beneficial it is to people who really need help.
                 </p>
             </div>
         </div>
@@ -261,4 +267,10 @@
             <i class="fa fa-linkedin w3-hover-opacity"></i>
         </div>
     </footer>
-    <script src=js/db_connector.js> </script> <script src=js/main.js> </script> </body> </html>
+    <script src=js/db_connector.js>
+    </script>
+    <script src=js/main.js>
+    </script>
+</body>
+
+</html>
