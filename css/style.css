@@ -114,6 +114,11 @@ span.psw {
     width: 80%;
 }
 
+#positionLabel {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .close {
     position: absolute;
     right: 25px;
