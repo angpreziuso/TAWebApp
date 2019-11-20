@@ -8,12 +8,23 @@ html {
 }
 
 #questionButton {
-    padding: 1%;
-    margin-bottom: 15px;
-    justify-content: center;
+    width: 20%;
+    margin:0 auto;
+    display:block;
     color: white;
     background-color: #562e72;
     border-color: #562e72;
+    margin-bottom: 30px;
+}
+
+#dropdown1 {
+    display: block;
+    /* flex-direction: column; */
+    justify-content: center;
+}
+
+.discussionTitle {
+    width: 80%;
 }
 
 .box select {
@@ -26,11 +37,18 @@ html {
     outline: none;
 }
 
+div.row.categoryModule a:hover {
+    color: purple;
+}
+
+
+
 #classes {
     text-align: center;
 }
 
 .classWrapper {
+    padding-top: 30px;
     text-align: center;
 }
 
@@ -64,7 +82,8 @@ input {
     height: 75%;
     background: #f2f2f2;
     opacity: 0.95;
-    position: absolute;
+    /* position: absolute; */
+    position: fixed;
     transform: translate(10%, 15%);
     top: 0;
 }
@@ -100,8 +119,6 @@ input {
     display: flex;
     justify-content: flex-end;
 }
-
-#modal-content {}
 
 #discussionButton {
     margin-right: 2%;
@@ -207,12 +224,14 @@ h4 {
     padding: 15px;
 }
 
-a {
+.categoryTitle {
     color: #663399;
     text-decoration: none;
 }
 
-a:hover {
+
+
+.categoryTitle:hover {
     color: #562e72;
     font-weight: 500;
     text-decoration: none;
