@@ -8,12 +8,11 @@ USE CLEF;
 
 CREATE TABLE CLEF_USER (
     UserID INTEGER(10) NOT NULL AUTO_INCREMENT,
-    UserName varchar(25) NOT NULL, 
     UserEmail varchar(50) NOT NULL,
     Password varchar(50) NOT NULL,
     FirstName varchar(255) NOT NULL, 
     LastName varchar(255) NOT NULL,
-    UNIQUE (UserName),
+    UNIQUE (UserEmail),
     PRIMARY KEY (UserID)
 );
 
@@ -24,6 +23,7 @@ CREATE TABLE COURSE (
 
 CREATE TABLE ROLE (
     RoleID INTEGER(10) NOT NULL AUTO_INCREMENT, 
+    RoleName varchar(25) NOT NULL,
     RoleDesc varchar(255),
     PRIMARY KEY (RoleID)
 );
@@ -108,3 +108,80 @@ CREATE TABLE SERV_REQ (
     FOREIGN KEY (TopicID) REFERENCES TOPIC (TopicID),
     PRIMARY KEY (ServReqID)
 );
+
+-- Seed the database. Add information to the database to help the DB get live ASAP
+
+INSERT INTO ROLE (RoleName, RoleDesc) VALUES ("Student", "Students using the CLEF System can submit questions to the whiteboard to get help from the TA's, as well as participate in a Piazza-like forum.");
+INSERT INTO ROLE (RoleName, RoleDesc) VALUES ("Teaching Assistant", "TA's using the CLEF System can view the queue of students waiting to be helped, as well as manage their availabilityand shift assignments");
+INSERT INTO ROLE (RoleName, RoleDesc) VALUES ("Professor", "Professors using the CLEF System are can view metadata on the questions asked to better arm themselves to teach any given section, and seed their courses with given topics to aid in that tracking.");
+INSERT INTO ROLE (RoleName, RoleDesc) VALUES ("Administrator", "CLEF System superusers");
+
+-- Seeding the database with DEVELOPERS
+
+INSERT INTO CLEF_USER (UserEmail, Password, FirstName, LastName) 
+VALUES (
+    "moorena@dukes.jmu.edu",
+    "n-moore-login",
+    "Nathan",
+    "Moore"
+);
+
+INSERT INTO CLEF_USER (UserEmail, Password, FirstName, LastName) 
+VALUES (
+    "preziual@dukes.jmu.edu",
+    "a-preziuso-login",
+    "Angela",
+    "Preziuso"
+);
+
+INSERT INTO CLEF_USER (UserEmail, Password, FirstName, LastName) 
+VALUES (
+    "parrbt@dukes.jmu.edu",
+    "b-parr-login",
+    "Brandon",
+    "Parr"
+);
+
+INSERT INTO CLEF_USER (UserEmail, Password, FirstName, LastName) 
+VALUES (
+    "ehrlicjd@dukes.jmu.edu",
+    "j-ehrlich-login",
+    "Josh",
+    "Ehrlich"
+);
+
+
+-- using NOW() ...
+-- This may result in an error telling you to upgrade mysql. I think I found a 
+-- workaround for this error by 
+--  $ sudo /Applications/xampp/xamppfiles/bin/mysql_upgrade -u root
+
+-- This may be different depending on your install path.
+
+
+
+
+-- Theses numbers correspond to which developer and role we have, this would normally 
+-- be done in some kind of script but for this specific purpose it is enough
+INSERT INTO USER_ROLE (UserID, RoleID, StartDate) VALUES (1, 4, NOW());
+INSERT INTO USER_ROLE (UserID, RoleID, StartDate) VALUES (2, 4, NOW());
+INSERT INTO USER_ROLE (UserID, RoleID, StartDate) VALUES (3, 4, NOW());
+INSERT INTO USER_ROLE (UserID, RoleID, StartDate) VALUES (4, 4, NOW());
+
+-- Lets add Nathan as a student as well.. 
+INSERT INTO USER_ROLE (UserID, RoleID, StartDate) VALUES (1, 1, NOW());
+
+-- Angie as a TA..
+INSERT INTO USER_ROLE (UserID, RoleID, StartDate) VALUES (2, 2, NOW());
+
+-- and Josh as a professor. 
+INSERT INTO USER_ROLE (UserID, RoleID, StartDate) VALUES (4, 3, NOW());
+
+-- (example queries)
+-- ------------------------ SHOW ALL ACTIVE ROLES IN THE SYSTEM ----------------------
+SELECT FirstName, RoleName, StartDate, UserEmail 
+FROM USER_ROLE 
+    INNER JOIN Clef_User ON clef_user.UserID = USER_ROLE.UserID 
+    INNER JOIN Role ON Role.RoleID = USER_ROLE.RoleID
+WHERE USER_ROLE.EndDate IS NULL;
+-- ------------------------------------------------------------------------------------
