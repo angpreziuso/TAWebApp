@@ -3,7 +3,7 @@
 //    document.getElementById('id01').style.display='none'
 //};
 
-function toggle_login() {
+function toggleLogin() {
     var x = document.getElementById('id01');
 
     if (x.style.display === "none") {
@@ -13,7 +13,7 @@ function toggle_login() {
     }
 }
 
-function toggle_signup() {
+function toggleSignup() {
     var x = document.getElementById('id02');
 
     if (x.style.display === "none") {
@@ -21,4 +21,8 @@ function toggle_signup() {
     } else {
         x.style.display = "none";
     }
+}
+
+function populateData() {
+    
 }
