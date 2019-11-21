@@ -5,69 +5,51 @@ require_once "databaseHandler.php";
 //ClefUser --> UserID, UserEmail, Password, FirstName, LastName
 //UserRole --> UserID RoleID, StartTime, EndTime
 
-session_start();
+ session_start();
+
+$loggingIn = trim($_POST["login"]); //When the user hits the login button
+$username = trim($_POST["username"]);
+$password = trim($_POST["password"]);
+$roleID = trim($_POST["role"]);
 
 
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: ../index.html");
-    exit;
-}
-
-
-$username ="";
-$password = "";
-$roleID = "";
-
-if($_SERVER["REQUEST_METHOD"] == "POST")
+if($loggingIn)
 {
-    if(empty(trim($_POST["username"]))) //Is the username Empty?
+    $username = strip_tags($username);
+    $password = strip_tags($password);
+
+    $username = mysqli_real_escape_string($username); 
+    $password = mysqli_real_escape_string($password); 
+
+
+    if(empty($username)) //Is the username Empty?
     {
         $username_err = "Please enter username.";
     } 
-    else //The Username is not empty
-    {
-        $username = trim($_POST["username"]); 
-    }
 
-
-    // Check if password is empty
-    if(empty(trim($_POST["password"])))
+    if(empty($password))
     {
         $password_err = "Please enter your password.";
     } 
-    else
-    {
-        $password = trim($_POST["password"]);
-    }
+
 }
 
-if(isset($_POST["login"]))
+if(isset($loggingIn))
 {
+        $sqlUsername = "SELECT * FROM CLEF_USER WHERE username=? LIMIT 1"; // IDK if this is correct
+        $stmt = mysqli_stmt_init($connection);
 
-    $email = $_POST["email"];
-    $password = $_POST["psw"];
-
-    if(empty($email) || empty($password))
-    {
-        header("Location: ./index.html?error=emptyField");
-        exit();
-    }
-    else
-    {
-        $sql = "SELECT * FROM users WHERE email=?";
-        $stmt = mysqli_stmt_init($connection($stmt, $sql));
-
-
-        if(!mysqli_stmt_prepare)
+        if($stmt = mysqli_prepare($connection, $stmt))
         {
-            header("Location: ./index.html?error=SQLError");
-            exit();
-        }
-        else
-        {
-            mysqli_stmt_bind_param($stmt, "ss", $email, $password);
-            mysqli_stmt_execute($stmt);
-            $results = mysqli_stmt_get_result($stmt);
+            mysqli_bind_param($stmt, "s", $username);
+            
+            if(mysqli_stmt_execute($stmt))
+            {
+                $results =  mysqli_stmt_store_result($stmt);
+                echo $results;
+            }
+            
+
 
             if($row = mysqli_fetch_assoc($results))
             {
@@ -79,7 +61,7 @@ if(isset($_POST["login"]))
                 }
                 else
                 {
-                    session_start();
+                    //session_start();
                     $_SESSION["userEmail"] = $row["email"];
                     $_SESSION["userUID"] = $row["userID"];
 
@@ -92,10 +74,6 @@ if(isset($_POST["login"]))
                 header("Location: ./index.html?error=invalidUser");
             }
         }
-    }
+    
 }
-else
-{
-    header("Location: ./index.html");
-    exit();
-}
+?>

@@ -41,7 +41,7 @@
 
         <div id="id01" class="modal">
 
-            <form class="modal-content animate" action= "./php/login.php" method="post">
+            <form class="modal-content animate" method="post" action="api/acnt/login.php">
                 <div class="imgcontainer">
                     <span onclick="toggleLogin()" class="close" title="Close Modal">&times;</span>
                     <img src="pictures/avatar.png" alt="Avatar" class="avatar">
@@ -49,7 +49,7 @@
                 <br>
                 <div>
                     <label id="positionLabel">Position? </label>
-                    <select id="myList">
+                    <select name="role" id="myList">
                                 <option value = "1">Student</option>
                                 <option value = "2">TA</option>
                                 <option value = "3">Admin</option>
@@ -62,7 +62,7 @@
                     <input type="text" placeholder="Enter Username" name="uname" required>
 
                     <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <input type="password" placeholder="Enter Password" name="password" required>
 
                     <label>
                         <input type="checkbox" checked="checked" name="remember">Remember me
@@ -272,7 +272,7 @@
     </footer>
     <script src=js/db_connector.js>
     </script>
-    <script src=js/main.js>
+    <script type="text/javascript" src=js/main.js>
     </script>
 </body>
 
