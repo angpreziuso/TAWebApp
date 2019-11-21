@@ -1,4 +1,3 @@
-
 /* index.html functions */
 function toggleLogin() {
     var x = document.getElementById('id01');
@@ -51,4 +50,8 @@ function toggleQuestion() {
     } else {
         x.style.display = "none";
     }
+}
+
+function populateData() {
+    
 }
