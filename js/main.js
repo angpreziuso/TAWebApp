@@ -64,6 +64,7 @@ function genRoleOption(role) {
     opt.value = role.RoleID;
     return opt
 }
+
 // Loads role data into the table on document load
 async function loadLoginRoles()  {
     try {
@@ -74,7 +75,6 @@ async function loadLoginRoles()  {
             },
         })
         const roles = await response.json()
-
         roles.forEach(function(role){
             document.getElementById("loginRoleOptions").appendChild(genRoleOption(role))
             document.getElementById("signupRoleOptions").appendChild(genRoleOption(role))
