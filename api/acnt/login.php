@@ -1,16 +1,23 @@
 <?php
 
-require_once "databaseHandler.php";
+require_once "../databaseHandler.php";
+// require_once "../databaseHandler.php";
 
 //ClefUser --> UserID, UserEmail, Password, FirstName, LastName
 //UserRole --> UserID RoleID, StartTime, EndTime
 
  session_start();
 
-$loggingIn = trim($_POST["login"]); //When the user hits the login button
-$username = trim($_POST["username"]);
-$password = trim($_POST["password"]);
-$roleID = trim($_POST["role"]);
+ $loggingIn = trim($_POST["login"]); //When the user hits the login button
+
+if(isset($loggingIn))
+{ 
+    $username = trim($_POST["username"]);
+    $password = trim($_POST["password"]);
+    $roleID = trim($_POST["role"]);
+}
+
+
 
 
 if($loggingIn)
