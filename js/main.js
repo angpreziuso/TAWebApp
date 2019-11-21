@@ -1,4 +1,7 @@
-/* index.html functions */
+
+
+
+/* index.html  functions */
 function toggleLogin() {
     var x = document.getElementById('id01');
 
@@ -19,7 +22,7 @@ function toggleSignup() {
     }
 }
 
-/* forum.html functions */
+/* forum.html  functions */
 function getSelectedValue() {
     varSelectedValue = document.getElementById("classes").value
     document.getElementById("className").innerHTML = varSelectedValue;
@@ -53,5 +56,29 @@ function toggleQuestion() {
 }
 
 function populateData() {
-    
+    loadRoles()
+}
+
+// Loads role data into the table on document load
+async function loadRoles()  {
+    try {
+        const response = await fetch("api/data/roles.php", {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        const roles = await response.json()
+
+        roles.forEach(function(role){
+            // `<option value=\"${role.RoleID}\">${role.RoleName}</option>`
+            var opt = document.createElement('option')
+            opt.appendChild( document.createTextNode(role.RoleName));
+            opt.value = role.RoleID;
+            console.log(opt)
+            document.getElementById("roleOptions").appendChild(opt)
+        })
+    } catch (e) {
+        console.error("e", e)
+    }
 }

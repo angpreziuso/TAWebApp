@@ -8,18 +8,19 @@
 
 -->
 <!DOCTYPE html>
-<html lang="en">
-<title>JMU TA Portal</title>
-<meta charset="UTF-8">
-<meta name="author" content="Angela Preziuso">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="css/style.css">
-
-<body onload=populateData()>
+<head>
+    <html lang="en">
+    <title>JMU TA Portal</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Angela Preziuso">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
     <!-- Navbar -->
     <div class="w3-top">
@@ -49,11 +50,7 @@
                 <br>
                 <div>
                     <label id="positionLabel">Position? </label>
-                    <select name="role" id="myList">
-                                <option value = "1">Student</option>
-                                <option value = "2">TA</option>
-                                <option value = "3">Admin</option>
-                    </select>
+                    <select name="role" id="roleOptions"></select>
                 </div>
                 </p>
 
@@ -91,11 +88,7 @@
                     <div>
                         <label id="positionLabel">Position? </label>
 
-                        <select id="myList">
-                                        <option value = "1">Student</option>
-                                        <option value = "2">TA</option>
-                                        <option value = "3">Admin</option>
-                            </select>
+                        <select id="roleOptions"></select>
                     </div>
                     </p>
                     <br>
@@ -270,10 +263,9 @@
             <i class="fa fa-linkedin w3-hover-opacity"></i>
         </div>
     </footer>
-    <script src=js/db_connector.js>
-    </script>
-    <script type="text/javascript" src=js/main.js>
-    </script>
+    <script src="js/db_connector.js"></script>
+    <script src="js/main.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', populateData, false);</script>
 </body>
 
 </html>
