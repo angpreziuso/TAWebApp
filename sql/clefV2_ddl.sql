@@ -159,8 +159,6 @@ VALUES (
 -- This may be different depending on your install path.
 
 
-
-
 -- Theses numbers correspond to which developer and role we have, this would normally 
 -- be done in some kind of script but for this specific purpose it is enough
 INSERT INTO USER_ROLE (UserID, RoleID, StartDate) VALUES (1, 4, NOW());
@@ -184,4 +182,12 @@ FROM USER_ROLE
     INNER JOIN Clef_User ON clef_user.UserID = USER_ROLE.UserID 
     INNER JOIN Role ON Role.RoleID = USER_ROLE.RoleID
 WHERE USER_ROLE.EndDate IS NULL;
+-- ------------------------------------------------------------------------------------
+
+-- ------------------------- SELECT ALL STUDENTS IN THE SYSTEM ------------------------
+SELECT FirstName, RoleName, StartDate, UserEmail 
+FROM USER_ROLE 
+    INNER JOIN Clef_User ON clef_user.UserID = USER_ROLE.UserID 
+    INNER JOIN Role ON Role.RoleID = USER_ROLE.RoleID
+WHERE USER_ROLE.RoleID = 1;
 -- ------------------------------------------------------------------------------------
