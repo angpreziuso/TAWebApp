@@ -1,6 +1,4 @@
 
-
-
 /* index.html  functions */
 function toggleLogin() {
     var x = document.getElementById('id01');
@@ -56,11 +54,18 @@ function toggleQuestion() {
 }
 
 function populateData() {
-    loadRoles()
+    loadLoginRoles()
 }
 
+// Dealing with pass by reference bs
+function genRoleOption(role) {
+    var opt = document.createElement('option')
+    opt.appendChild( document.createTextNode(role.RoleName));
+    opt.value = role.RoleID;
+    return opt
+}
 // Loads role data into the table on document load
-async function loadRoles()  {
+async function loadLoginRoles()  {
     try {
         const response = await fetch("api/data/roles.php", {
             method: "GET",
@@ -71,12 +76,8 @@ async function loadRoles()  {
         const roles = await response.json()
 
         roles.forEach(function(role){
-            // `<option value=\"${role.RoleID}\">${role.RoleName}</option>`
-            var opt = document.createElement('option')
-            opt.appendChild( document.createTextNode(role.RoleName));
-            opt.value = role.RoleID;
-            console.log(opt)
-            document.getElementById("roleOptions").appendChild(opt)
+            document.getElementById("loginRoleOptions").appendChild(genRoleOption(role))
+            document.getElementById("signupRoleOptions").appendChild(genRoleOption(role))
         })
     } catch (e) {
         console.error("e", e)
