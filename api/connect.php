@@ -1,6 +1,6 @@
 <?php
 
-$dbLink = mysqli_connect('localhost', 'root', '');
+$dbLink = mysqli_connect('localhost', 'root', '', "CLEF");
 mysqli_select_db($dbLink, 'CLEF');
 
 if(!$dbLink)
