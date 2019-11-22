@@ -8,37 +8,35 @@ require_once "../databaseHandler.php";
 
  session_start();
 
- $loggingIn = trim($_POST["login"]); //When the user hits the login button
-
-if(isset($loggingIn))
+if(isset($_POST["login"]))
 { 
+    $loggingIn = trim($_POST["login"]); //When the user hits the login button
     $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);
     $roleID = trim($_POST["role"]);
-}
 
-
-
-
-if($loggingIn)
-{
-    $username = strip_tags($username);
-    $password = strip_tags($password);
-
-    $username = mysqli_real_escape_string($username); 
-    $password = mysqli_real_escape_string($password); 
-
-
-    if(empty($username)) //Is the username Empty?
+    if($loggingIn)
     {
-        $username_err = "Please enter username.";
-    } 
-
-    if(empty($password))
-    {
-        $password_err = "Please enter your password.";
-    } 
-
+        $username = strip_tags($username);
+        $password = strip_tags($password);
+    
+        $username = mysqli_real_escape_string($username); 
+        $password = mysqli_real_escape_string($password); 
+    
+    
+        if(empty($username)) //Is the username Empty?
+        {
+            $username_err = "Please enter username.";
+            exit();
+        } 
+    
+        if(empty($password))
+        {
+            $password_err = "Please enter your password.";
+            exit();
+        } 
+    
+    }
 }
 
 if(isset($loggingIn))
@@ -46,7 +44,7 @@ if(isset($loggingIn))
         $sqlUsername = "SELECT * FROM CLEF_USER WHERE username=? LIMIT 1"; // IDK if this is correct
         $stmt = mysqli_stmt_init($connection);
 
-        if($stmt = mysqli_prepare($connection, $stmt))
+        if($stmt = mysqli_prepare($stmt, $sqlUsername))
         {
             mysqli_bind_param($stmt, "s", $username);
             
@@ -56,30 +54,32 @@ if(isset($loggingIn))
                 echo $results;
             }
             
+            mysqli_stmt_close($stmt);
+
+        }
 
 
-            if($row = mysqli_fetch_assoc($results))
+        if($row = mysqli_fetch_assoc($results))
+        {
+            $pwdCheck = password_verify($password, $row["password"]);
+            
+            if($pwdCheck == false)
             {
-                $pwdCheck = password_verify($password, $row["password"]);
-                
-                if($pwdCheck == false)
-                {
-                    header("Location: ./index.html?error=invalidPassword");
-                }
-                else
-                {
-                    //session_start();
-                    $_SESSION["userEmail"] = $row["email"];
-                    $_SESSION["userUID"] = $row["userID"];
-
-                    header("Location: ./index.html?loggedin");
-                    exit();
-                }
+                header("Location: ./index.html?error=invalidPassword");
             }
             else
             {
-                header("Location: ./index.html?error=invalidUser");
+                //session_start();
+                $_SESSION["userEmail"] = $row["email"];
+                $_SESSION["userUID"] = $row["userID"];
+
+                header("Location: ./index.html?loggedin");
+                exit();
             }
+        }
+        else
+        {
+            header("Location: ./index.html?error=invalidUser");
         }
     
 }
