@@ -1,7 +1,7 @@
 
 <?php
 
-require_once("../connect.php");
+require "../connect.php";
 
 // Find out which chunk of data the site is asking for
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {

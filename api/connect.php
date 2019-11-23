@@ -2,9 +2,7 @@
 
 $dbLink = mysqli_connect('localhost', 'root', '', "CLEF");
 mysqli_select_db($dbLink, 'CLEF');
-
-if(!$dbLink)
-{
+if(!$dbLink) {
     die("Connection Failed: ".mysqli_connect_error());
 }
 
