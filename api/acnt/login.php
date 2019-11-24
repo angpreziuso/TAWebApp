@@ -9,6 +9,8 @@ session_start();
 
 $resp["response"] = "Nothing has been done yet";
 
+// THIS CHECK MAKES THINGS BREAK
+// either find a way to make the check work or remove check
 if(isset($_POST["login-submit"]))
 { 
     $input = file_get_contents('php://input');
