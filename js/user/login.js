@@ -27,7 +27,13 @@ const login = async eventObj => {
 
         const rj = await response.json()
         // Do work with the response
-        console.log(rj)
+        
+        if (rj.hasOwnProperty("error")) {
+            console.error("AUTHENTICATION ERROR: " + rj.error)
+        } else {
+            console.log(rj.response)
+        }
+        
     } catch (e) {
         console.error("There was a problem", e)
     }
