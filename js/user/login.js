@@ -3,7 +3,7 @@ const login = async eventObj => {
     const email = document.getElementById("loginEmailField").value
     const password = document.getElementById("loginPasswordField").value
     const role = document.getElementById("loginRoleOptions").value
-    console.log(email)
+
     cred = {
         role: role,
         email: email,
@@ -23,10 +23,10 @@ const login = async eventObj => {
             },
             body: JSON.stringify(cred)
         })
-        
+
         const rj = await response.json()
         // Do work with the response
-        console.log(rj)
+        console.log(rj.response)
     } catch (e) {
         console.error("There was a problem", e)
     }

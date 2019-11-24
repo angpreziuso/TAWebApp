@@ -5,103 +5,81 @@
 //ClefUser --> UserID, UserEmail, Password, FirstName, LastName
 //UserRole --> UserID RoleID, StartTime, EndTime
 
- session_start();
+session_start();
+
+$resp["response"] = "Nothing has been done yet";
 
 if(isset($_POST["login-submit"]))
 { 
-    //echo "hello";
-    // $loggingIn = trim($_POST["login"]); //When the user hits the login button
-    $email = trim($_POST["email"]);
-    $password = trim($_POST["password"]);
-    $roleID = trim($_POST["role"]);
-    
-        if(empty($email)) //Is the username Empty?
-        {
-            $email_err = "Please enter username.";
-            exit();
-        } 
-    
-        if(empty($password))
-        {
-            $password_err = "Please enter your password.";
-            exit();
-        } 
+    $input = file_get_contents('php://input');
+    $cred = json_decode($input);
+    $email = $cred->email;
+    $password = $cred->password;
+    $roleID = $cred->role;
 
-           
-        $username = strip_tags($email);
-        $password = strip_tags($password);
-    
-        $username = mysqli_real_escape_string($email); 
-        $password = mysqli_real_escape_string($password); 
+    if(empty($email)) //Is the username Empty?
+    {
+        $email_err = "Please enter username.";
+        exit();
+    } 
 
-        $sql = "SELECT * FROM CLEF_USER WHERE UserEmail=?;"; 
-        $stmt = mysqli_stmt_init($dbLink);
+    if(empty($password))
+    {
+        $password_err = "Please enter your password.";
+        exit();
+    } 
 
+        
+    $username = strip_tags($email);
+    $password = strip_tags($password);
+
+    $username = mysqli_real_escape_string($dbLink, $email); 
+    $password = mysqli_real_escape_string($dbLink, $password); 
+
+    $sql = "SELECT * FROM CLEF_USER INNER JOIN USER_ROLE ON CLEF_USER.userID = USER_ROLE.userID WHERE UserEmail=? AND USER_ROLE.roleID=?"; 
+
+    $stmt = mysqli_prepare($dbLink, $sql);
+    mysqli_stmt_bind_param($stmt, "si", $email, $roleID); 
     
-        if(!mysqli_prepare($stmt, $sql))
+    if(!$stmt)
+    {
+        header("Location: ../../index.html?error=SQLError ");
+        exit();
+    }
+    mysqli_stmt_execute($stmt);
+    $results =  mysqli_stmt_get_result($stmt);
+    if($row = mysqli_fetch_assoc($results))
+    {
+        $pwdCheck = password_verify($password, $row["Password"]); // In the DB password is uppercase
+        
+        if($pwdCheck)
         {
-            header("Location: ../../index.html?error=SQLError ");
+            session_start();
+            $_SESSION["userEmail"] = $row["UserEmail"];
+            $_SESSION["userID"] = $row["userID"];
+            header("Location: ../../forum.html?loggedin");
+            $resp["firstName"] = $row["firstName"];
+            echo "yuh yeet";
             exit();
         }
         else
         {
-            mysqli_bind_param($stmt, "ss", $email, $password); 
-            mysqli_stmt_execute($stmt);
-            $results =  mysqli_stmt_get_result($stmt);
-            
-            if($row = mysqli_fetch_assoc($results))
-            {
-                $pwdCheck = password_verify($password, $row["Password"]); // In the DB password is uppercase
-                
-                if($pwdCheck == false)
-                {
-                    header("Location: ../../index.html?error=invalidPassword");
-                }
-                else
-                {
-                    session_start();
-                    $_SESSION["userEmail"] = $row["UserEmail"];
-                    $_SESSION["userID"] = $row["userID"];
-    
-                    header("Location: ../../forum.html?loggedin");
-                    exit();
-                }
-            }
-            else
-            {
-                header("Location: ./index.html?error=invalidUser");
-            }
-            
-            
-            mysqli_stmt_close($stmt);
+            header("Location: ./index.html?error=badPassword");
         }
-
-}
-else
-{
-    header("Location: ../../index.html");
-    exit();
-}
-
-// if(isset($loggingIn))
-// {
-//         $sqlUsername = "SELECT * FROM CLEF_USER WHERE username=? LIMIT 1"; // IDK if this is correct
-//         $stmt = mysqli_stmt_init($dbLink);
-
-//         if($stmt = mysqli_prepare($stmt, $sqlUsername))
-//         {
-//             mysqli_bind_param($stmt, "s", $username);
-            
-//             if(mysqli_stmt_execute($stmt))
-//             {
-//                 $results =  mysqli_stmt_store_result($stmt);
-//                 echo $results;
-//             }
-            
-//             mysqli_stmt_close($stmt);
-
-//         }
+    }
+    else
+    {
+        header("Location: ./index.html?error=invalidUser");
+    }
     
-// }
+    
+    mysqli_stmt_close($stmt);
+} else {
+    // Remember that the frontend is expecting a response in JSON. 
+    // setting this field in the resp assoc array and echo json_encode($resp)
+    // will, for login at least, give us a way to view the behaviour of this script
+    $resp["response"] = "Dear Nathan, fuck you. Sincerely, PHP.";
+    echo json_encode($resp);
+}
 
 ?>

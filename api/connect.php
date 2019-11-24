@@ -8,7 +8,7 @@ if(!$dbLink) {
 
 function query($query){
     global $dbLink;
-    $result = mysqli_query($dbLink, $query) or die();
+    $result = mysqli_query($dbLink, $query) or die(mysqli_error($dbLink));
     $topics = array();
     if ($result != null) {
         while ($topic = $result->fetch_assoc()) {

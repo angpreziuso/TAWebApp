@@ -1,5 +1,33 @@
  <?php 
 
+
+function add_user_to_system($email, $password, $firstName, $lastName, $role) {
+    // role is not a string
+    $username = mysqli_real_escape_string($dbLink, $email); 
+    $password = mysqli_real_escape_string($dbLink, $password); 
+    $firstName = mysqli_real_escape_string($dbLink, $firstName); 
+    $lastName = mysqli_real_escape_string($dbLink, $lastName); 
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO CLEF_USER (UserEmail, Password, FirstName, LastName) VALUES (?, ?, ?, ?)";
+    
+    $stmt = mysqli_prepare($dbLink, $sql);
+    mysqli_stmt_bind_param($stmt, "sbss", $email, $hashedPassword, $firstName, $lastName); 
+
+    if(!$stmt)
+    {
+        printf("Malformed statement\n");
+        exit();
+    }
+
+    $rows_affected = mysqli_stmt_execute($stmt);
+    $results =  mysqli_stmt_get_result($stmt);
+    printf("%d Rows affected.", $rows_affected);
+
+}
+
+
+
 //Name of signup submit button = signup-submit
 
 if(isset($_POST["signup-submit"])) // The user actually hit the sign up button
@@ -89,3 +117,5 @@ else
     header("Location: ../../index.html");
     exit();
 }
+
+?>
