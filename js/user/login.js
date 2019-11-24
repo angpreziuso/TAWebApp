@@ -5,6 +5,7 @@ const login = async eventObj => {
     const role = document.getElementById("loginRoleOptions").value
 
     cred = {
+        origin: "login-submit",
         role: role,
         email: email,
         password: password
@@ -26,7 +27,7 @@ const login = async eventObj => {
 
         const rj = await response.json()
         // Do work with the response
-        console.log(rj.response)
+        console.log(rj)
     } catch (e) {
         console.error("There was a problem", e)
     }

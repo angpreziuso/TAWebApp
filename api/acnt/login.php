@@ -5,19 +5,29 @@
 //ClefUser --> UserID, UserEmail, Password, FirstName, LastName
 //UserRole --> UserID RoleID, StartTime, EndTime
 
-session_start();
+// session_start();
 
-$resp["response"] = "Nothing has been done yet";
+// TODO check to see if the user has already been authenticated
 
-// THIS CHECK MAKES THINGS BREAK
+
+$resp["response"] = "none";
+
 // either find a way to make the check work or remove check
-if(isset($_POST["login-submit"]))
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 { 
     $input = file_get_contents('php://input');
+
     $cred = json_decode($input);
     $email = $cred->email;
     $password = $cred->password;
     $roleID = $cred->role;
+
+    if (strcmp($cred->origin,'login-submit') != 0) {
+        // printf("Hello?");
+        $resp["error"] = "Bad origin";
+        echo json_encode($resp);
+        exit();
+    }
 
     if(empty($email)) //Is the username Empty?
     {
@@ -45,7 +55,9 @@ if(isset($_POST["login-submit"]))
     
     if(!$stmt)
     {
-        header("Location: ../../index.html?error=SQLError ");
+        // header("Location: ../../index.html?error=SQLError ");
+        $resp["error"] = "Internal server error: bad statement";
+        echo json_encode($resp);
         exit();
     }
     mysqli_stmt_execute($stmt);
@@ -58,20 +70,23 @@ if(isset($_POST["login-submit"]))
         {
             session_start();
             $_SESSION["userEmail"] = $row["UserEmail"];
-            $_SESSION["userID"] = $row["userID"];
-            header("Location: ../../forum.html?loggedin");
-            $resp["firstName"] = $row["firstName"];
-            echo "yuh yeet";
+            $_SESSION["userID"] = $row["UserID"];
+            $resp["response"] = "Welcome, " . $row["FirstName"] . "!";
+            echo json_encode($resp);
             exit();
         }
         else
-        {
-            header("Location: ./index.html?error=badPassword");
+        { 
+            $resp["error"] = "bad password";
+            echo json_encode($resp);
+            exit();
         }
     }
     else
     {
-        header("Location: ./index.html?error=invalidUser");
+        $resp["error"] = "user does not exist";
+        echo json_encode($resp);
+        exit();
     }
     
     
