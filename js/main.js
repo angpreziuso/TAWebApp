@@ -1,9 +1,8 @@
-
 /* index.html  functions */
 function toggleLogin() {
     var x = document.getElementById('id01');
 
-    if (x.style.display === "none") {
+    if (x.style.display === "none" || x.style.display == '') {
         x.style.display = "block";
     } else {
         x.style.display = "none";
@@ -13,7 +12,7 @@ function toggleLogin() {
 function toggleSignup() {
     var x = document.getElementById('id02');
 
-    if (x.style.display === "none") {
+    if (x.style.display === "none" || x.style.display == '') {
         x.style.display = "block";
     } else {
         x.style.display = "none";
@@ -60,13 +59,13 @@ function populateData() {
 // Dealing with pass by reference bs
 function genRoleOption(role) {
     var opt = document.createElement('option')
-    opt.appendChild( document.createTextNode(role.RoleName));
+    opt.appendChild(document.createTextNode(role.RoleName));
     opt.value = role.RoleID;
     return opt
 }
 
 // Loads role data into the table on document load
-async function loadLoginRoles()  {
+async function loadLoginRoles() {
     try {
         const response = await fetch("api/data/roles.php", {
             method: "GET",
@@ -75,7 +74,7 @@ async function loadLoginRoles()  {
             },
         })
         const roles = await response.json()
-        roles.forEach(function(role){
+        roles.forEach(function(role) {
             document.getElementById("loginRoleOptions").appendChild(genRoleOption(role))
             document.getElementById("signupRoleOptions").appendChild(genRoleOption(role))
         })
