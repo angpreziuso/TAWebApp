@@ -8,8 +8,25 @@ body {
     color: black;
 }
 
+.input-color {
+    position: relative;
+    display: inline-block;
+}
 
-/*a { color: #5797F2; text-decoration: none;}*/
+.input-color input {
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.input-color .color-box {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: #ccc;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
 
 a {
     color: #4F74DD;
@@ -82,9 +99,9 @@ a:hover {
 }
 
 #content h4 {
+    text-align: center;
     color: #232323;
     font-size: 12px;
-    font-weight: bold;
 }
 
 #content p {
@@ -145,22 +162,23 @@ span.read {
 }
 
 span.beg {
-    color: green;
+    color: purple;
 }
 
-span.hw {
-    font-weight: bold;
+span.math {
     color: orange;
 }
 
-span.pa {
-    font-weight: bold;
+span.adv {
+    color: blue;
+}
+
+span.lam {
     color: red;
 }
 
-span.ext {
-    font-style: italic;
-    color: purple;
+span.gen {
+    color: green;
 }
 
 img.centered {
