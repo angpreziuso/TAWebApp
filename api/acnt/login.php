@@ -23,9 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $password = $cred->password;
     $roleID = $cred->role;
 
-    // echo $email;
-    // echo $password;
-    // echo $roleID;
 
     if (strcmp($cred->origin,'login-submit') != 0) {
         // printf("Hello?");
