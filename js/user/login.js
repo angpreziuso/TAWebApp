@@ -31,7 +31,7 @@ const login = async eventObj => {
             body: JSON.stringify(cred)
         })
 
-        const rj = await response.text() // was json
+        const rj = await response.json() // was json
         console.log(rj);
         // Do work with the response
         

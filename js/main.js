@@ -76,7 +76,7 @@ async function loadLoginRoles() {
             },
         })
         const roles = await response.json()
-        console.log(roles);
+        // console.log(roles);
         roles.forEach(function(role) {
             document.getElementById("loginRoleOptions").appendChild(genRoleOption(role))
             document.getElementById("signupRoleOptions").appendChild(genRoleOption(role))
