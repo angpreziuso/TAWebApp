@@ -9,8 +9,8 @@ html {
 
 #questionButton {
     width: 20%;
-    margin:0 auto;
-    display:block;
+    margin: 0 auto;
+    display: block;
     color: white;
     background-color: #562e72;
     border-color: #562e72;
@@ -40,8 +40,6 @@ html {
 div.row.categoryModule a:hover {
     color: purple;
 }
-
-
 
 #classes {
     text-align: center;
@@ -188,7 +186,6 @@ div.row.forumPad {
 }
 
 h1 {
-    font-size: 1.7em;
     color: #562e72;
 }
 
@@ -225,11 +222,9 @@ h4 {
 }
 
 .categoryTitle {
-    color: #663399;
+    color: #562e72;
     text-decoration: none;
 }
-
-
 
 .categoryTitle:hover {
     color: #562e72;
