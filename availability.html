@@ -38,33 +38,26 @@
     <form action="/action_page.php">
         <fieldset class="coverShift">
             <legend>Availability</legend>
-            Full Name:<br>
-            <input class="OrigShift" type="text" name="firstname" value=""> Phone Number:<br>
+            <p>Full Name:</p>
+            <br>
+            <input class="fullname" type="text" name="fullname" value="" required>
+            <p>Phone Number:</p>
             <input class="phone" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> <br> Email:
             <br>
-            <input class="email" type="email" id="email" pattern=".+@globex.com" size="30" required>
-            <p>When can you work?</p>
-            <div class="whenwork">
-                <label class="container">One
-                <input type="radio" checked="checked" name="radio">
-                <span class="checkmark"></span>
-                </label>
-
-                <label class="container">Two
-          <input type="radio" name="radio">
-          <span class="checkmark"></span>
-        </label>
-                <label class="container">Three
-          <input type="radio" name="radio">
-          <span class="checkmark"></span>
-        </label>
-                <label class="container">Four
-          <input type="radio" name="radio">
-          <span class="checkmark"></span>
-        </label>
-
-            </div>
+            <input class="email" type="email" id="email" pattern=".+@globex.com" required>
+            <p>When times can you work?</p>
+            <input type="checkbox" value="anytime"> Any time<br>
+            <input type="checkbox" value="fivetoseven"> 5 - 7<br>
+            <input type="checkbox" value="seventonine"> 7 - 9<br>
+            <input type="checkbox" value="ninetoeleven"> 9 - 11<br>
+            <p>What days you work?</p>
+            <input type="checkbox" value="anytime"> Any time<br>
+            <input type="checkbox" value="fivetoseven"> 5 - 7<br>
+            <input type="checkbox" value="seventonine"> 7 - 9<br>
+            <input type="checkbox" value="ninetoeleven"> 9 - 11<br>
             <br>
+            <p>Comments</p>
+            <input type="text" value="">
 
             <input class="shiftcoversubmit" type="submit" value="Submit">
         </fieldset>
