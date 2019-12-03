@@ -15,7 +15,7 @@ const login = async eventObj => {
         console.error("The incoming credentials were malformed and the login request was unable to be completed.");
         return false; 
     }
-    
+
     try {
         const response = await fetch("api/acnt/login.php", {
             method: "POST",
@@ -46,6 +46,8 @@ function displayLoginError(res) {
         msg.style.display = "block";
         msg.innerHTML = res.error;
     } else {
-        msg.style.display = "none";
+        msg.style.display = "block";
+        msg.style.color = "green";
+        msg.innerHTML = res.response;
     }
 }
