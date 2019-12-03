@@ -1,4 +1,4 @@
-body,
+/* body,
 html {
     background-color: #f2f2f2;
 }
@@ -19,7 +19,6 @@ html {
 
 #dropdown1 {
     display: block;
-    /* flex-direction: column; */
     justify-content: center;
 }
 
@@ -80,7 +79,6 @@ input {
     height: 75%;
     background: #f2f2f2;
     opacity: 0.95;
-    /* position: absolute; */
     position: fixed;
     transform: translate(10%, 15%);
     top: 0;
@@ -164,9 +162,8 @@ input {
 }
 
 .forumTable th {
-    /* padding: 5px; */
     color: #808080;
-    /* border: 1px solid black; */
+
 }
 
 div.row.forumPad {
@@ -238,4 +235,4 @@ div#modalQuestionPresent.modal {
 
 .submitbutton {
     padding: 0%;
-}
+} */
