@@ -20,8 +20,6 @@ const login = async eventObj => {
         return false; 
     }
 
-    console.log("Error?");
-
     try {
         const response = await fetch("api/acnt/login.php", {
             method: "POST",
@@ -34,7 +32,7 @@ const login = async eventObj => {
         const rj = await response.json() // was json
         console.log(rj);
         // Do work with the response
-        
+        displayLoginError(rj)
         if (rj.hasOwnProperty("error")) {
             console.error("AUTHENTICATION ERROR: " + rj.error)
         } else {
@@ -45,3 +43,15 @@ const login = async eventObj => {
         console.error("There was a problem", e)
     }
 } 
+
+function displayLoginError(res) {
+    var msg = document.getElementById("loginResponseMsg");
+    if(res.hasOwnProperty("error")) {
+        msg.style.display = "block";
+        msg.innerHTML = res.error;
+    } else {
+        msg.style.display = "block";
+        msg.style.color = "green";
+        msg.innerHTML = res.response;
+    }
+}

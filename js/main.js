@@ -27,6 +27,9 @@ function getSelectedValue() {
     document.getElementById("className").innerHTML = varSelectedValue;
 }
 
+
+
+
 function toggleCateogry() {
     var x = document.getElementById("dropdown1");
     if (x.style.display === "none") {

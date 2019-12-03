@@ -8,6 +8,7 @@
 
 -->
 <!DOCTYPE html>
+
 <head>
     <html lang="en">
     <title>JMU TA Portal</title>
@@ -20,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <!-- Navbar -->
@@ -29,8 +31,10 @@
                     class="fa fa-bars"></i></a>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Home</a>
             <a href="cal.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Calendar</a>
-            <a href="scheduleReq.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Schedule Request</a>
+            <a href="availability.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Availability</a>
+            <a href="coverShift.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Cover Shift</a>
             <a href="forum.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Forum</a>
+
         </div>
     </div>
 
@@ -47,6 +51,7 @@
                     <span onclick="toggleLogin()" class="close" title="Close Modal">&times;</span>
                     <img src="pictures/avatar.png" alt="Avatar" class="avatar">
                 </div>
+                <p id="loginResponseMsg">There is no response</p>
                 <br>
                 <div>
                     <label id="positionLabel">Position? </label>
@@ -78,12 +83,14 @@
             Up</button>
 
         <div id="id02" class="modal">
+
             <form class="modal-content animate" method="POST" onsubmit="signup(event)">
 
                 <div class="container">
                     <span onclick="toggleSignup()" class="close" title="Close Modal">&times;</span>
                     <h1>Sign Up</h1>
                     <p>Please fill in this form to create an account.</p>
+                    <p id="signupResponseMsg">There is no response</p>
                     <hr>
                     <div>
                         <label id="positionLabel">Position? </label>
@@ -265,7 +272,9 @@
     <script src="js/main.js"></script>
     <script src="js/user/login.js"></script>
     <script src="js/user/signup.js"></script>
-    <script>document.addEventListener('DOMContentLoaded', populateData, false);</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', populateData, false);
+    </script>
 </body>
 
 </html>

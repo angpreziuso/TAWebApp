@@ -172,3 +172,13 @@ span.psw {
         width: 100%;
     }
 }
+
+#signupResponseMsg {
+    color: red;
+    display: none;
+}
+
+#loginResponseMsg {
+    color: red;
+    display: none;
+}
