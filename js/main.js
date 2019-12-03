@@ -1,3 +1,5 @@
+//require_once "../connect.php"; 
+
 /* index.html  functions */
 function toggleLogin() {
     var x = document.getElementById('id01');
@@ -70,10 +72,11 @@ async function loadLoginRoles() {
         const response = await fetch("api/data/roles.php", {
             method: "GET",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'plain/text'
             },
         })
         const roles = await response.json()
+        console.log(roles);
         roles.forEach(function(role) {
             document.getElementById("loginRoleOptions").appendChild(genRoleOption(role))
             document.getElementById("signupRoleOptions").appendChild(genRoleOption(role))

@@ -16,6 +16,8 @@ const login = async eventObj => {
         return false; 
     }
 
+    console.log("Error?");
+
     try {
         const response = await fetch("api/acnt/login.php", {
             method: "POST",
@@ -25,7 +27,8 @@ const login = async eventObj => {
             body: JSON.stringify(cred)
         })
 
-        const rj = await response.json()
+        const rj = await response.text() // was json
+        console.log(rj);
         // Do work with the response
         
         if (rj.hasOwnProperty("error")) {
