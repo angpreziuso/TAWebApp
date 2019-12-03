@@ -78,7 +78,7 @@
             Up</button>
 
         <div id="id02" class="modal">
-            <form class="modal-content animate" method="POST" action="./api/acnt/signup.php">
+            <form class="modal-content animate" method="POST" onsubmit="signup(event)">
 
                 <div class="container">
                     <span onclick="toggleSignup()" class="close" title="Close Modal">&times;</span>
@@ -87,23 +87,22 @@
                     <hr>
                     <div>
                         <label id="positionLabel">Position? </label>
-
                         <select id="signupRoleOptions"></select>
                     </div>
                     </p>
                     <br>
 
                     <label for="firstName"><b>First Name</b></label>
-                    <input type="text" placeholder="First Name" name="firstName" required>
+                    <input id="signupFirstNameField" type="text" placeholder="First Name" name="firstName" required>
 
                     <label for="lastName"><b>Last Name</b></label>
-                    <input type="text" placeholder="Last Name" name="lastName" required>
+                    <input id="signupLastNameField" type="text" placeholder="Last Name" name="lastName" required>
 
                     <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
+                    <input id="signupEmailField" type="text" placeholder="Enter Email" name="email" required>
 
                     <label for="password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
+                    <input id="signupPasswordField" type="password" placeholder="Enter Password" name="password" required>
 
                     <label for="psw-repeat"><b>Repeat Password</b></label>
                     <input type="password" placeholder="Repeat Password" name="password-repeat" required>
@@ -265,6 +264,7 @@
     </footer>
     <script src="js/main.js"></script>
     <script src="js/user/login.js"></script>
+    <script src="js/user/signup.js"></script>
     <script>document.addEventListener('DOMContentLoaded', populateData, false);</script>
 </body>
 

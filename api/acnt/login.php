@@ -16,10 +16,8 @@ $resp["response"] = "none";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 { 
     $input = file_get_contents('php://input');
-
     $cred = json_decode($input);
 
-//echo $cred;
 
     $email = $cred->email;
     $password = $cred->password;

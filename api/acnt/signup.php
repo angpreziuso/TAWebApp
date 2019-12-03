@@ -7,21 +7,15 @@ require_once "../connect.php";
 // query("DELETE FROM CLEF_USER");
 $rows_affected = 0;
 
-if(isset($_POST["signup-submit"])) // The user actually hit the sign up button
-{
-    echo "hello";
+$resp["response"] = "none";
 
-    $email = $_POST["email"];
-    $role = $_POST["role"];
-    $firstName = $_POST["firstName"];
-    $lastName = $_POST["lastName"];
-    $password = $_POST["password"];
-
-    echo "Here ".$email;
-
-
-    add_user_to_system($email, $password, $firstName, $lastName, $role);
-
+// either find a way to make the check work or remove check
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{ 
+    $input = file_get_contents('php://input');
+    $cred = json_decode($input);
+    add_user_to_system($cred->email, $cred->password, $cred->firstName, $cred->lastName, $cred->role);
+    echo json_encode($resp);
 }
 
 
@@ -76,11 +70,3 @@ function add_user_to_system($email, $password, $firstName, $lastName, $role) {
     $rows_affected += mysqli_stmt_execute($stmt);
     $results = mysqli_stmt_get_result($stmt);
 }
-
-
-
-
-//Name of signup submit button = signup-submit
-
-
-
