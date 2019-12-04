@@ -12,9 +12,8 @@
         exit();
     }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'GET') 
-    {
-
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        $resp["error"] = "api/data/shifts.php ->".$_SERVER["REQUEST_METHOD"].": NOT IMPLEMENTED";
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // POST A NEW SHIFT SLOT TO THE DB
@@ -38,9 +37,16 @@
         $startTime = mysqli_real_escape_string($dbLink, $startTime); 
         $endTime = mysqli_real_escape_string($dbLink, $endTime); 
         // POST NEW AVAILABILITY
+        $resp["error"] = "api/data/shifts.php ->".$_SERVER["REQUEST_METHOD"].": NOT IMPLEMENTED";
     }
-    if ($_SERVER['REQUEST_METHOD'] == 'UPDATE') {}
-    if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {}
+    if ($_SERVER['REQUEST_METHOD'] == 'UPDATE') {
+        $resp["error"] = "api/data/shifts.php ->".$_SERVER["REQUEST_METHOD"].": NOT IMPLEMENTED";
+    }
+    if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
+        $resp["error"] = "api/data/shifts.php ->".$_SERVER["REQUEST_METHOD"].": NOT IMPLEMENTED";
+    }
+
+    echo json_encode($resp);
 
     function verify_use($input) {
         // ADMIN can preform all tasks. 
