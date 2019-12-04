@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $input = file_get_contents('php://input');
     $cred = json_decode($input);
 
-
     $email = $cred->email;
     $password = $cred->password;
     $roleID = $cred->role;
@@ -56,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     
     if(!$stmt)
     {
-        // header("Location: ../../index.html?error=SQLError ");
         $resp["error"] = "Internal server error: bad statement";
         echo json_encode($resp);
         exit();
