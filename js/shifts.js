@@ -43,16 +43,30 @@ console.log("loaded");
             const rj = await response.json() // was json
             console.log(rj);
             // Do work with the response
-            displaySignupError(rj);
-            if (rj.hasOwnProperty("error")) {
-                console.error("SIGNUP ERROR: " + rj.error)
-            } else {
-                console.log(rj.response)
-            }
+            // displayLoginError(rj);
+            // if (rj.hasOwnProperty("error")) {
+            //     console.error("SIGNUP ERROR: " + rj.error)
+            // } else {
+            //     console.log(rj.response)
+            // }
             
         } catch (e) {
             console.error("There was a problem", e)
         }
     });
+
+
+    // function displayLoginError(res) {
+    //     var msg = document.getElementById("loginResponseMsg");
+    //     if(res.hasOwnProperty("error")) {
+    //         msg.style.display = "block";
+    //         msg.style.color = "red";
+    //         msg.innerHTML = res.error;
+    //     } else {
+    //         msg.style.display = "block";
+    //         msg.style.color = "green";
+    //         msg.innerHTML = res.response;
+    //     }
+    // }
 
 });
