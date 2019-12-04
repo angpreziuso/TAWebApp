@@ -75,7 +75,7 @@ async function loadLoginRoles() {
         const response = await fetch("api/data/roles.php", {
             method: "GET",
             headers: {
-                'Content-Type': 'plain/text'
+                'Content-Type': 'response/json'
             },
         })
         const roles = await response.json()

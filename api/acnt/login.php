@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $password = $cred->password;
     $roleID = $cred->role;
 
+
     if (strcmp($cred->origin,'login-submit') != 0) {
         // printf("Hello?");
         $resp["error"] = "Bad origin";
@@ -50,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     $sql = "SELECT * FROM CLEF_USER INNER JOIN USER_ROLE ON CLEF_USER.userID = USER_ROLE.userID WHERE UserEmail=? AND USER_ROLE.roleID=?"; 
 
+
     $stmt = mysqli_prepare($dbLink, $sql);
     mysqli_stmt_bind_param($stmt, "si", $email, $roleID); 
     
@@ -61,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
     mysqli_stmt_execute($stmt);
     $results =  mysqli_stmt_get_result($stmt);
+   
     if($row = mysqli_fetch_assoc($results))
     {
         $pwdCheck = password_verify($password, $row["Password"]); // In the DB password is uppercase

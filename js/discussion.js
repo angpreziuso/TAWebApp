@@ -1,10 +1,9 @@
 window.addEventListener('DOMContentLoaded', (event) => {
-    
-console.log("IN JS")
 
-var category = document.getElementsByClassName("categoryDescription");
+//var categoryDescription = document.getElementsByClassName("categoryDescription");
 var questionSubmitted = document.getElementById("questionSubmitButton");
 var discussionSubmitted = document.getElementById("discussionFormSubmit");
+var catrgoryDesc;
 
 var newCategoryDiv; 
 var categoryTitleButton;
@@ -14,19 +13,81 @@ discussionSubmitted.addEventListener("click", function(event) {
     
     event.preventDefault();
 
+    createNewDiscussion();
+
+    newQuestionButton.addEventListener("click", function(event){
+        var modal = document.getElementById("modalQuestionPresent");
+        modal.style.display = "block";
+      });
+
+    categoryTitleButton.innerHTML = catrgoryDesc;
+    newCategoryDiv.classList.add("discussionCategory");
+
+    newCategoryDiv.appendChild(categoryTitleButton);
+    newCategoryDiv.appendChild(newQuestionButton);
+
+    var category = document.getElementsByClassName("discussionCategory");
+    var i;
+
+    console.log(category);
+
+        for(i = 0; i < category.length; i++)
+        {       
+            var children = category[i].childNodes; // the categoryDescription button
+
+            children[0].addEventListener("click", function(){
+                
+                console.log("clicked");
+
+                var panel = this.nextElementSibling;
+
+                if(children[0].style.display != "none" || children[0].style.display == null)
+                {
+                    category.style.display = "none"
+                }
+                else
+                {
+                    category.style.display = "block"
+                }
+            });            
+        } 
+
+
+    
+
+    document.body.appendChild(newCategoryDiv);
+
+    //Needs to create a new div that has a button which contains the cateogry filled out by the user
+    // Also needs to have an Ask a Question Button
+    //Create an emtpy table??
+
+});
+
+
+function createNewDiscussion()
+{
+    //Create the dom elements of the discussion
     newCategoryDiv = document.createElement("div"); 
     categoryTitleButton = document.createElement("button"); 
     newQuestionButton = document.createElement("button"); 
+    
+    newCategoryDiv.classList.add("discussionCategory");
+    
 
-    var catrgoryDesc = document.getElementById("categoryDescription").value;
+    catrgoryDesc = document.getElementById("categoryDescription").value; 
     document.getElementById('modalDiscussionPresent').style.display='none';
 
+    styleCategory();
+}
 
+function styleCategory()
+{
     newCategoryDiv.style.margin = "0 auto";
     newCategoryDiv.style.width = "1000px";
     newCategoryDiv.style.height = "250px";
     newCategoryDiv.style.marginBottom = "100px";
     newCategoryDiv.style.backgroundColor = "white";
+    newCategoryDiv.classList.add("discussionCategory");
 
     categoryTitleButton.style.width = "80%";
     categoryTitleButton.style.height = "20%";
@@ -44,45 +105,12 @@ discussionSubmitted.addEventListener("click", function(event) {
     newQuestionButton.style.marginBottom = "30px";
     newQuestionButton.innerHTML = "Ask a Question"
     newQuestionButton.style.background = "#562e72";
- 
+}
 
-    newQuestionButton.addEventListener("click", function(event){
-        var modal = document.getElementById("modalQuestionPresent");
-        modal.style.display = "block";
-      });
 
-    categoryTitleButton.innerHTML = catrgoryDesc;
-    categoryTitleButton.classList.add("discussionTitle");
-    
-    categoryTitleButton.onclick = function() {
-        var category = document.getElementById("dropdown1");
-        if(category.style.display != "none")
-        {
-            category.style.display = "none"
-        }
-        else
-        {
-            category.style.display = "block"
-        }
-       
-    }
-
-    newCategoryDiv.appendChild(categoryTitleButton);
-    newCategoryDiv.appendChild(newQuestionButton);
-
-    
-
-    document.body.appendChild(newCategoryDiv);
-
-    //Needs to create a new div that has a button which contains the cateogry filled out by the user
-    // Also needs to have an Ask a Question Button
-    //Create an emtpy table??
-
-});
 
 questionSubmitted.addEventListener("click", function(event) {
     event.preventDefault();
-    console.log("yes");
 
     var questionDescription = document.getElementById("questionDescription").value;
     var questionDetails = document.getElementById("detailsTextArea").value;
@@ -127,9 +155,14 @@ questionSubmitted.addEventListener("click", function(event) {
     row.style.border = "1px solid #808080";
 
     var question = document.createElement("a");
+    var link = document.createTextNode(questionDescription.innerHTML); 
+    console.log(link);
+    question.appendChild(link);
+    question.href = "#";  
 
+   // question.innerHTML = questionDescription;
 
-    cell1.innerHTML = questionDescription;
+    cell1.appendChild(question);
     cell2.innerHTML = "Comes from database email";
     cell3.innerHTML = "0";
 
