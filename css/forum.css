@@ -7,6 +7,10 @@ html {
     background: #f2f2f2;
 }
 
+.discussionCategory {
+   
+}
+
 #questionButton {
     width: 20%;
     margin: 0 auto;
@@ -17,7 +21,7 @@ html {
     margin-bottom: 30px;
 }
 
-#dropdown1 {
+.active{
     display: block;
     justify-content: center;
 }

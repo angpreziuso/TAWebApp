@@ -18,10 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $input = file_get_contents('php://input');
     $cred = json_decode($input);
 
-
     $email = $cred->email;
     $password = $cred->password;
     $roleID = $cred->role;
+
 
     if (strcmp($cred->origin,'login-submit') != 0) {
         // printf("Hello?");
@@ -51,18 +51,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     $sql = "SELECT * FROM CLEF_USER INNER JOIN USER_ROLE ON CLEF_USER.userID = USER_ROLE.userID WHERE UserEmail=? AND USER_ROLE.roleID=?"; 
 
+
     $stmt = mysqli_prepare($dbLink, $sql);
     mysqli_stmt_bind_param($stmt, "si", $email, $roleID); 
     
     if(!$stmt)
     {
-        // header("Location: ../../index.html?error=SQLError ");
-        $resp["error"] = "Internal server error: bad statement";
+        $resp["error"] = "Internal server error";
         echo json_encode($resp);
         exit();
     }
     mysqli_stmt_execute($stmt);
     $results =  mysqli_stmt_get_result($stmt);
+   
     if($row = mysqli_fetch_assoc($results))
     {
         $pwdCheck = password_verify($password, $row["Password"]); // In the DB password is uppercase
@@ -72,20 +73,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             session_start();
             $_SESSION["userEmail"] = $row["UserEmail"];
             $_SESSION["userID"] = $row["UserID"];
+            $_SESSION["role"] = $row["RoleID"];
             $resp["response"] = "Welcome, " . $row["FirstName"] . "!";
             echo json_encode($resp);
             exit();
         }
         else
         { 
-            $resp["error"] = "bad password";
+            $resp["error"] = "The password you entered was incorrect.";
             echo json_encode($resp);
             exit();
         }
     }
     else
     {
-        $resp["error"] = "user does not exist";
+        $resp["error"] = "User ".$email." does not exist.";
         echo json_encode($resp);
         exit();
     }

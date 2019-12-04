@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 
 /**
- * Function utilizes three peices: 
+ * Function utilizes three pieces: 
  *      1. Insert user into clef_user table
  *      2. grab the generated user id
  *      3. insert the user into the user_role table
@@ -41,25 +41,25 @@ function add_user_to_system($email, $password, $firstName, $lastName, $role) {
     mysqli_stmt_bind_param($stmt, "ssss", $email, $hashedPassword, $firstName, $lastName); 
 
     if(!$stmt) {
-        printf("Malformed statement\n");
-        exit();
+        $resp["error"] = "Error inserting new user to the database";
+        return;
     }
 
     $rows_affected += mysqli_stmt_execute($stmt);
 
     // user should be in the table now. Get the generated user id
-
     $sql = "SELECT userID FROM CLEF_USER WHERE UserEmail=?";
     $stmt = mysqli_prepare($dbLink, $sql);
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
     $results = mysqli_stmt_get_result($stmt);
 
+    // Checks if the new user exists
     if($row = mysqli_fetch_assoc($results)) {
         $userID = $row["userID"];
     } else {
-        printf("Error inserting new user to the database\n");
-        exit();
+        $resp["error"] = "Error inserting new user to the database";
+        return;
     }
 
     // add the role information
@@ -70,3 +70,5 @@ function add_user_to_system($email, $password, $firstName, $lastName, $role) {
     $rows_affected += mysqli_stmt_execute($stmt);
     $results = mysqli_stmt_get_result($stmt);
 }
+
+?>

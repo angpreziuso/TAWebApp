@@ -4,6 +4,10 @@ const login = async eventObj => {
     const password = document.getElementById("loginPasswordField").value
     const role = document.getElementById("loginRoleOptions").value
 
+    console.log(email);
+    console.log(password);
+    console.log(role);
+
     cred = {
         origin: "login-submit",
         role: role,
@@ -44,6 +48,7 @@ function displayLoginError(res) {
     var msg = document.getElementById("loginResponseMsg");
     if(res.hasOwnProperty("error")) {
         msg.style.display = "block";
+        msg.style.color = "red";
         msg.innerHTML = res.error;
     } else {
         msg.style.display = "block";
