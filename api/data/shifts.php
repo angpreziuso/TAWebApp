@@ -12,16 +12,23 @@
         exit();
     }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'GET') {}
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        $resp["error"] = "api/data/shifts.php ->" . $_SERVER["REQUEST_METHOD"].": NOT IMPLEMENTED";
+    }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // POST A NEW SHIFT SLOT TO THE DB
 
         // POST A NEW SHIFT CHAGE REQ TO THE DB
 
         // POST NEW AVAILABILITY
+        $resp["error"] = "api/data/shifts.php ->" . $_SERVER["REQUEST_METHOD"]. ": NOT IMPLEMENTED";
     }
-    if ($_SERVER['REQUEST_METHOD'] == 'UPDATE') {}
-    if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {}
+    if ($_SERVER['REQUEST_METHOD'] == 'UPDATE') {
+        $resp["error"] = "api/data/shifts.php ->" . $_SERVER["REQUEST_METHOD"].": NOT IMPLEMENTED";
+    }
+    if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
+        $resp["error"] = "api/data/shifts.php ->" . $_SERVER["REQUEST_METHOD"].": NOT IMPLEMENTED";
+    }
 
     function verify_use($input) {
         // ADMIN can preform all tasks. 
