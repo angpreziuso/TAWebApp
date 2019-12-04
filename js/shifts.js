@@ -3,7 +3,7 @@ console.log("loaded");
 
     const submit = document.getElementById("submit");
 
-    submit.addEventListener("click" , function(eventObj)
+    submit.addEventListener("click" , async function(eventObj)
     {
         eventObj.preventDefault();
 
@@ -13,15 +13,31 @@ console.log("loaded");
         const startTime = document.getElementById("startTime").value
         const endTime = document.getElementById("endTime").value
 
+        input = {
+            origin: "CHANGE_REQ",
+            person1: person1Name,
+            person2: person2Name,
+            shiftDate: shiftDate,
+            startTime: startTime,
+            endTime: endTime
+        }
+
+        if (!(input.hasOwnProperty("person1") && input.hasOwnProperty("person2") && input.hasOwnProperty("shiftDate") 
+            && input.hasOwnProperty("startTime") && input.hasOwnProperty("endTime"))) 
+        {
+            
+                console.error("The incoming credentials were malformed and the login request was unable to be completed.");         
+                return false; 
+        }
         
         try {
-            const response = await fetch("api/acnt/shifts.php", {
+            const response = await fetch("api/data/shifts.php", {
                 method: "POST",
                 credentials: "same-origin",
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(cred)
+                body: JSON.stringify(input)
             })
     
             const rj = await response.json() // was json
