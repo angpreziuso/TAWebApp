@@ -37,12 +37,65 @@ const login = async eventObj => {
             console.error("AUTHENTICATION ERROR: " + rj.error)
         } else {
             console.log(rj.response)
+            toggleLogin()
+            determineHome(rj.role)
         }
         
     } catch (e) {
         console.error("There was a problem", e)
     }
-} 
+}
+
+
+const determineHome = async (role) => {
+
+    switch (role) {
+        case 1:
+            var x = document.getElementById("index");
+            x.style.display = "block";
+            var x = document.getElementById("TA");
+            x.style.display = "none";
+            var x = document.getElementById("admin");
+            x.style.display = "none";
+            break;
+        case 2:
+            var x = document.getElementById("index");
+            x.style.display = "none";
+            var x = document.getElementById("TA");
+            x.style.display = "block";
+            var x = document.getElementById("admin");
+            x.style.display = "none";
+            break;
+        case 3:
+            var x = document.getElementById("index");
+            x.style.display = "block";
+            var x = document.getElementById("TA");
+            x.style.display = "none";
+            var x = document.getElementById("admin");
+            x.style.display = "none";
+            break;
+        case 4:
+            var x = document.getElementById("index");
+            x.style.display = "none";
+            var x = document.getElementById("TA");
+            x.style.display = "none";
+            var x = document.getElementById("admin");
+            x.style.display = "block";
+            break;
+        default:
+            console.error("Unable to find role")
+    }
+}
+
+function toggleLogin() {
+    var x = document.getElementById('id01');
+
+    if (x.style.display === "none" || x.style.display == '') {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
 
 function displayLoginError(res) {
     var msg = document.getElementById("loginResponseMsg");
