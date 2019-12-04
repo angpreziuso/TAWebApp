@@ -1,12 +1,11 @@
 fieldset.coverShift {
     border: 1px solid #c0c0c0;
-    margin: 80 2px;
+    margin: 55px 2px;
     padding: .35em .625em .75em;
 }
 
 input.shiftcoversubmit {
     width: 20%;
-    position: right;
 }
 
 input.shiftCovTimeStart,
