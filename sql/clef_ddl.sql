@@ -32,7 +32,8 @@ CREATE TABLE SHIFT (
     ShiftID INTEGER(10) NOT NULL AUTO_INCREMENT, 
     BeginTime TIME(6),
     EndTime TIME(6),
-    ShiftDate DATE NOT NULL,
+    ShiftDay VARCHAR(10) NOT NULL,
+    ShiftDate DATE,
     CourseID INTEGER(10),
     FOREIGN KEY (CourseID) REFERENCES COURSE (CourseID),
     PRIMARY KEY (ShiftID)
@@ -78,7 +79,7 @@ CREATE TABLE ENROLLMENT (
 );
 
 CREATE TABLE SHIFT_DUTY (
-    DutyID INTEGER(10) NOT NULL,
+    DutyID INTEGER(10) NOT NULL AUTO_INCREMENT,
     UserID INTEGER(10) NOT NULL,
     ShiftID INTEGER(10) NOT NULL,
     RoleID INTEGER(10) NOT NULL,
@@ -125,8 +126,15 @@ CREATE TABLE SERV_REQ (
 
 -- Seed the database. Add information to the database to help the DB get live ASAP
 
+INSERT INTO Course (CourseID) VALUES (101);
+INSERT INTO Course (CourseID) VALUES (149);
+INSERT INTO Course (CourseID) VALUES (159);
+INSERT INTO Course (CourseID) VALUES (240);
+INSERT INTO Course (CourseID) VALUES (261);
+
 INSERT INTO ROLE (RoleName, RoleDesc) VALUES ("Student", "Students using the CLEF System can submit questions to the whiteboard to get help from the TA's, as well as participate in a Piazza-like forum.");
 INSERT INTO ROLE (RoleName, RoleDesc) VALUES ("Teaching Assistant", "TA's using the CLEF System can view the queue of students waiting to be helped, as well as manage their availabilityand shift assignments");
 INSERT INTO ROLE (RoleName, RoleDesc) VALUES ("Professor", "Professors using the CLEF System are can view metadata on the questions asked to better arm themselves to teach any given section, and seed their courses with given topics to aid in that tracking.");
 INSERT INTO ROLE (RoleName, RoleDesc) VALUES ("Administrator", "CLEF System superusers");
+
 

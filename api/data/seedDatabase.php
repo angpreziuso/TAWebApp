@@ -68,12 +68,22 @@ add_user_to_system("ehrlicjd@dukes.jmu.edu", "j-password", "Josh", "Ehrlich", AD
 // Lets add Nathan as a student as well.. 
 add_user_to_system("moorena@dukes.jmu.edu", "n-password", "Nathan", "Moore", STU);
 
-// Angie as a TA..
+//TAs..
 add_user_to_system("preziual@dukes.jmu.edu", "a-password", "Angela", "Preziuso",TA);
+add_user_to_system("marsman@gmail.com", "m-password", "Mark", "Watney", TA);
+add_user_to_system("lovowh@dukes.jmu.edu", "w-password", "William", "Lovo", TA);
+add_user_to_system("boywholived@gmail.com", "h-password", "Harry", "Potter", TA);
+add_user_to_system("redgetsbread@gmail.com", "t-password", "Tyrion", "Lannister", TA);
+add_user_to_system("zastudcr@dukes.jmu.edu", "c-password", "Cindy", "Zastudil", TA);
+add_user_to_system("slingininnewyork@gmail.com", "p-password", "Peter", "Parker", TA);
+add_user_to_system("hairyfeet@gmail.com", "f-password", "Frodo", "Baggins", TA);
+add_user_to_system("bigdead@gmail.com", "iloveyou3000", "Tony", "Stark", TA);
+add_user_to_system("humor60@gmail.com", "t-password", "T.A.R.S.", "v2.3", TA);
+add_user_to_system("mytempo@gmail.com", "t-password", "Terrance", "Fletcher", TA);
 
 // and Josh as a professor. 
 add_user_to_system("ehrlicjd@dukes.jmu.edu", "j-password", "Josh", "Ehrlich", PROF);
 
-
+echo "Done, " . $rows_affected . " rows affected.";
 
 ?>
