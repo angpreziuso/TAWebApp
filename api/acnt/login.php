@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     
     if(!$stmt)
     {
-        $resp["error"] = "Internal server error: bad statement";
+        $resp["error"] = "Internal server error";
         echo json_encode($resp);
         exit();
     }
@@ -73,20 +73,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             session_start();
             $_SESSION["userEmail"] = $row["UserEmail"];
             $_SESSION["userID"] = $row["UserID"];
+            $_SESSION["role"] = $row["RoleID"];
             $resp["response"] = "Welcome, " . $row["FirstName"] . "!";
             echo json_encode($resp);
             exit();
         }
         else
         { 
-            $resp["error"] = "bad password";
+            $resp["error"] = "The password you entered was incorrect.";
             echo json_encode($resp);
             exit();
         }
     }
     else
     {
-        $resp["error"] = "user does not exist";
+        $resp["error"] = "User ".$email." does not exist.";
         echo json_encode($resp);
         exit();
     }
