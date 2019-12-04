@@ -10,7 +10,6 @@
 <!DOCTYPE html>
 
 <head>
-    <html lang="en">
     <title>JMU TA Portal</title>
     <meta charset="UTF-8">
     <meta name="author" content="Angela Preziuso">
@@ -20,6 +19,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="pictures/favicon.ico" />
 </head>
 
 <body>
@@ -42,8 +42,8 @@
 
     <!-- Header -->
     <header class="w3-container w3-purple w3-center" style="padding:128px 16px">
-        <h1 id="JMUCS" class="w3-margin w3-jumbo">JMU Computer Science</h1>
-        <p id="JMUCS" class="w3-xlarge">TA Hours</p>
+        <h1 id="JMUCS" style="color:white;" class="w3-margin w3-jumbo">JMU Computer Science</h1>
+        <p id="TAHours" class="w3-xlarge" style="color: white;">TA Hours</p>
         <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="toggleLogin()">Login</button>
 
         <div id="id01" class="modal">
@@ -59,13 +59,11 @@
                     <label id="positionLabel">Position? </label>
                     <select name="role" id="loginRoleOptions"></select>
                 </div>
-                </p>
-
                 <div class="container">
-                    <label for="username"><b>Username</b></label>
+                    <label id="username"><b>Username</b></label>
                     <input id="loginEmailField" type="text" placeholder="Enter Username" name="username" required>
 
-                    <label for="password"><b>Password</b></label>
+                    <label id="password"><b>Password</b></label>
                     <input id="loginPasswordField" type="password" placeholder="Enter Password" name="password" required>
 
                     <label>
@@ -95,25 +93,24 @@
                     <p id="signupResponseMsg">There is no response</p>
                     <hr>
                     <div>
-                        <label id="positionLabel">Position? </label>
+                        <label id="positionLabel2">Position? </label>
                         <select id="signupRoleOptions"></select>
                     </div>
-                    </p>
                     <br>
 
-                    <label for="firstName"><b>First Name</b></label>
+                    <label id="firstName"><b>First Name</b></label>
                     <input id="signupFirstNameField" type="text" placeholder="First Name" name="firstName" required>
 
-                    <label for="lastName"><b>Last Name</b></label>
+                    <label id="lastName"><b>Last Name</b></label>
                     <input id="signupLastNameField" type="text" placeholder="Last Name" name="lastName" required>
 
-                    <label for="email"><b>Email</b></label>
+                    <label id="email"><b>Email</b></label>
                     <input id="signupEmailField" type="text" placeholder="Enter Email" name="email" required>
 
-                    <label for="password"><b>Password</b></label>
+                    <label id="password2"><b>Password</b></label>
                     <input id="signupPasswordField" type="password" placeholder="Enter Password" name="password" required>
 
-                    <label for="psw-repeat"><b>Repeat Password</b></label>
+                    <label id="psw-repeat"><b>Repeat Password</b></label>
                     <input type="password" placeholder="Repeat Password" name="password-repeat" required>
 
                     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.
@@ -174,12 +171,10 @@
                     <tr>
                         <td>Rebecca Woods</td>
                         <td>Virginia Olchevski</td>
-
                     </tr>
                     <tr>
                         <td>Teddy Pugh</td>
                         <td>Maddie Brower</td>
-
                     </tr>
                     <tr>
                         <td>Grant Showalter</td>

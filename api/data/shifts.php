@@ -17,7 +17,8 @@
         // POST A NEW SHIFT SLOT TO THE DB
 
         // POST A NEW SHIFT CHAGE REQ TO THE DB
-        
+
+        // POST NEW AVAILABILITY
     }
     if ($_SERVER['REQUEST_METHOD'] == 'UPDATE') {}
     if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {}
@@ -30,10 +31,8 @@
 
         if($_SESSION["role"] == TA) {
             // only be able to POST SHIFT_CHANGE_REQ
-            if (array_key_exists("job", $input)) {
-                if ($input["job"] == "CHANGE_REQ") {
-                    return true;
-                }
+            if ($input["origin"] == "CHANGE_REQ") {
+                return true;
             }
         }
 
