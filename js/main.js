@@ -28,8 +28,6 @@ function getSelectedValue() {
 }
 
 
-
-
 function toggleCateogry() {
     var x = document.getElementById("dropdown1");
     if (x.style.display === "none") {
@@ -79,7 +77,7 @@ async function loadLoginRoles() {
             },
         })
         const roles = await response.json()
-        // console.log(roles);
+            // console.log(roles);
         roles.forEach(function(role) {
             document.getElementById("loginRoleOptions").appendChild(genRoleOption(role))
             document.getElementById("signupRoleOptions").appendChild(genRoleOption(role))

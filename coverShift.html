@@ -34,6 +34,23 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+    <form action="shiftCoverTable.php">
+        <fieldset class="coverShift">
+            <legend>Shift Cover Request</legend>
+            Person with Shift Full Name:<br>
+            <input class="OrigShift" type="text" id="fullname1" value="">
+            <br> Person Trying to Cover Shift Full Name:<br>
+            <input class="shiftCov" type="text" id="fullname2" value="">
+            <br> Enter Date of Shift Being Covered:<br>
+            <input class="shiftCovDate" type="text" id="date" placeholder="YYYY-MM-DD" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" title="Enter a date in this format YYYY-MM-DD"
+            />
+            <br> Enter Time of Shift Being Covered:<br>
+            <input class="shiftCovTimeStart" type="text" id="starttime" placeholder="HH-MM" required pattern="[0-9][0-9]-[0-9][0-9]" title="Enter a date in this format MM-DD-YYYY" /> to <br>
+            <input class="shiftCovTimeEnd" type="text" id="endtime" placeholder="HH-MM" required pattern="[0-9][0-9]-[0-9][0-9]" title="Enter a date in this format MM-DD-YYYY" />
+            <br>
+            <input id="shiftcoversubmit" class="shiftcoversubmit" type="submit" value="Submit">
+=======
     <form method="POST">
         <fieldset class="coverShift">
             <legend>Shift Cover Request</legend>
@@ -49,6 +66,7 @@
             <input class="shiftCovTimeEnd" type="text" id="endTime" placeholder="HH-MM" required pattern="[0-9][0-9]-[0-9][0-9]" title="Enter a date in this format MM-DD-YYYY" />
             <br>
             <input class="shiftcoversubmit" id="submit" type="submit" value="Submit">
+>>>>>>> 1f5c3f6655a9263295c9c97a7dc436714d6b7a2e
         </fieldset>
     </form>
 

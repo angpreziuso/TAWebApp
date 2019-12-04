@@ -57,7 +57,8 @@ button:hover {
     color: #450084 !important;
 }
 
-#JMUCS {
+#JMUCS,
+p#TAHours {
     color: white;
 }
 
@@ -114,7 +115,8 @@ span.psw {
     width: 80%;
 }
 
-#positionLabel {
+#positionLabel,
+#positionLabel2 {
     padding-left: 10px;
     padding-right: 10px;
 }

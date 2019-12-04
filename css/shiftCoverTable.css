@@ -1,0 +1,242 @@
+body,
+html {
+    background-color: #f2f2f2;
+}
+
+.box {
+    background: #f2f2f2;
+}
+
+#questionButton {
+    width: 20%;
+    margin: 0 auto;
+    display: block;
+    color: white;
+    background-color: #562e72;
+    border-color: #562e72;
+    margin-bottom: 30px;
+}
+
+#dropdown1 {
+    display: block;
+    /* flex-direction: column; */
+    justify-content: center;
+}
+
+.discussionTitle {
+    width: 80%;
+}
+
+.box select {
+    color: #562e72;
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    border: none;
+    font-size: 20px;
+    outline: none;
+}
+
+div.row.categoryModule a:hover {
+    color: purple;
+}
+
+#classes {
+    text-align: center;
+}
+
+.classWrapper {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.paginationArrow {
+    color: gray;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.className {
+    font-size: 2.0em;
+    padding-top: 25px;
+    text-align: center;
+}
+
+.categoryModule {
+    background-color: white;
+    width: 100%;
+    color: black;
+    overflow: none;
+    margin-top: 50px;
+    align-content: center;
+}
+
+input {
+    width: 90%;
+}
+
+#modalQuestionPresent {
+    width: 75%;
+    height: 75%;
+    background: #f2f2f2;
+    opacity: 0.95;
+    /* position: absolute; */
+    position: fixed;
+    transform: translate(10%, 15%);
+    top: 0;
+}
+
+#modalDisucssionPresent {
+    width: 50%;
+    height: 50%;
+    background: #f2f2f2;
+    opacity: 0.95;
+    position: absolute;
+    transform: translate(10%, 15%);
+    top: 0;
+}
+
+#cancel {
+    margin-right: 10px;
+}
+
+#details {
+    padding-top: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#detailsLabel {
+    padding-right: 25px;
+    padding-bottom: 40px;
+}
+
+.modalFormButtons {
+    padding-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#discussionButton {
+    margin-right: 2%;
+    color: white;
+    background: #562e72;
+    border-color: #562e72;
+}
+
+.container {
+    padding: 16px;
+    width: 100%;
+    height: 100%;
+}
+
+#newQuestion {
+    width: 100;
+    height: 50;
+    align-items: center;
+    text-align: center;
+    padding-top: 25px;
+}
+
+#newTopic {
+    width: 100;
+    height: 50;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.forumPad {
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.forumMargin {
+    margin-bottom: 10px;
+}
+
+.forumTable {
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+}
+
+.forumTable th {
+    /* padding: 5px; */
+    color: #808080;
+    /* border: 1px solid black; */
+}
+
+div.row.forumPad {
+    padding-left: 30px;
+}
+
+.forumTable td {
+    padding: 5px
+}
+
+.forumTable tr {
+    border: 1px solid #f2f2f2;
+}
+
+.forumTable a:hover {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 1.7em;
+    color: #562e72;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+.categoryWrapper {
+    text-align: center;
+}
+
+.vMiddle {
+    display: inline-block;
+    position: relative;
+    margin: auto;
+    vertical-align: middle;
+}
+
+.columnPad {
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.paginationBar {
+    padding: 15px;
+}
+
+.categoryTitle {
+    color: #663399;
+    text-decoration: none;
+}
+
+.categoryTitle:hover {
+    color: #562e72;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+div#modalQuestionPresent.modal {
+    padding-top: 0%;
+}
+
+.submitbutton {
+    padding: 0%;
+}
