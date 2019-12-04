@@ -6,6 +6,11 @@ if(!$dbLink) {
     die("Connection Failed: ".mysqli_connect_error());
 }
 
+define("STU", 1);
+define("TA", 2);
+define("PROF", 3);
+define("ADMIN", 4);
+
 function query($query){
     global $dbLink;
     $result = mysqli_query($dbLink, $query) or die(mysqli_error($dbLink));

@@ -58,10 +58,6 @@ function add_user_to_system($email, $password, $firstName, $lastName, $role) {
 }
 
 // TODO make this into a post response?
-define("STU", 1);
-define("TA", 2);
-define("PROF", 3);
-define("ADMIN", 4);
 
 // Add all of us as administrators
 add_user_to_system("moorena@dukes.jmu.edu", "n-password", "Nathan", "Moore", ADMIN);
