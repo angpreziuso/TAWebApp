@@ -1,0 +1,66 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" i ntegrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/coverShift.css">
+    <link rel="stylesheet" href="scheduleReq.html">
+
+    <script type="text/javascript" src="./js/discussion.js"></script>
+    <script type="text/javascript" src=js/main.js>
+    </script>
+    <title>forum</title>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-purple w3-large w3-purple" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                                class="fa fa-bars"></i></a>
+            <a href="cal.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Calendar</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Availability</a>
+            <a href="coverShift.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Cover Shift</a>
+            <a href="forum.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Forum</a>
+
+        </div>
+    </div>
+
+</head>
+
+<body>
+    <form action="/action_page.php">
+        <fieldset class="coverShift">
+            <legend>Availability</legend>
+            <p>Full Name:</p>
+            <input class="fullname" type="text" name="fullname" value="" required>
+            <p>Phone Number:</p>
+            <input class="phone" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> <br> Email:
+            <br>
+            <input class="email" type="email" id="email" pattern=".+@globex.com" required>
+            <p>When times can you work?</p>
+            <input type="checkbox" value="anytime"> Any time<br>
+            <input type="checkbox" value="fivetoseven"> 5 - 7<br>
+            <input type="checkbox" value="seventonine"> 7 - 9<br>
+            <input type="checkbox" value="ninetoeleven"> 9 - 11<br>
+            <p>What days you work?</p>
+            <input type="checkbox" value="anytime"> Any time<br>
+            <input type="checkbox" value="fivetoseven"> 5 - 7<br>
+            <input type="checkbox" value="seventonine"> 7 - 9<br>
+            <input type="checkbox" value="ninetoeleven"> 9 - 11<br>
+            <br>
+            <p>Comments</p>
+            <input type="text" value="">
+
+            <input class="shiftcoversubmit" type="submit" value="Submit">
+        </fieldset>
+    </form>
+</body>
+
+</html>

@@ -8,6 +8,7 @@
 
 -->
 <!DOCTYPE html>
+
 <head>
     <html lang="en">
     <title>JMU TA Portal</title>
@@ -20,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <!-- Navbar -->
@@ -29,8 +31,10 @@
                     class="fa fa-bars"></i></a>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Home</a>
             <a href="cal.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Calendar</a>
-            <a href="scheduleReq.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Schedule Request</a>
+            <a href="availability.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Availability</a>
+            <a href="coverShift.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Cover Shift</a>
             <a href="forum.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Forum</a>
+
         </div>
     </div>
 
@@ -79,7 +83,7 @@
             Up</button>
 
         <div id="id02" class="modal">
-            
+
             <form class="modal-content animate" method="POST" onsubmit="signup(event)">
 
                 <div class="container">
@@ -109,7 +113,7 @@
 
                     <label for="psw-repeat"><b>Repeat Password</b></label>
                     <input type="password" placeholder="Repeat Password" name="password-repeat" required>
-                    
+
                     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.
                     </p>
 
@@ -268,7 +272,23 @@
     <script src="js/main.js"></script>
     <script src="js/user/login.js"></script>
     <script src="js/user/signup.js"></script>
-    <script>document.addEventListener('DOMContentLoaded', populateData, false);</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', populateData, false);
+    </script>
+
+
+    <div id="TA">
+        <iframe class="frame" src="http://www.piazza.com/" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:500px;width:75%;border:none;overflow:hidden;margin-top:50px;"></iframe>
+        <iframe class="queue" src="queue.html" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="float:right;height:500px;width:25%;border:none;overflow:hidden;margin-top:50px;"></iframe>
+        <iframe class="cal" src="cal.html" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:600px;width:100%;border:none;overflow:hidden;margin-top:50px;"></iframe>
+    </div>
+
+
+    <div id="admin">
+        <iframe class="frame" src="shiftCoverTable.html" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:500px;width:75%;border:none;overflow:hidden;margin-top:50px;"></iframe>
+
+    </div>
+
 </body>
 
 </html>
