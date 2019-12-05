@@ -68,15 +68,16 @@ async function populateTAShifts() {
             },
         })
         const shifts = await response.json()
-            shifts.forEach(function(shift) {
+        shifts.forEach(function(shift) {
                 console.log(shift)
-                document.getElementById("ListOfTAs").appendChild(genTAList(shift));
-            })
+                var list1 = document.getElementById("ListOfTAs1");
+                var list2 = document.getElementById("ListOfTAs2");
 
-            console.log(shifts.filter(function(s){
-                return s.FirstName === "Harry";
-            }))
-
+                var TAOption = shift["FirstName"] + shift["LastName"] + shift["BeginTime"] + shift["EndTime"] + shift["ShiftDay"] 
+                list1.appendChild(genTAList(TAOption));
+                list2.appendChild(genTAList(TAOption));
+           
+        })
     } catch (e) {
         console.error("e", e)
     }
@@ -85,8 +86,8 @@ async function populateTAShifts() {
 // Dealing with pass by reference bs
 function genTAList(shift) {
     var opt = document.createElement('option')
-    opt.appendChild(document.createTextNode("Hello"));
-    opt.value = shift.TAList;
+    opt.appendChild(document.createTextNode(shift));
+    opt.value = shift;
     return opt
 }
 
@@ -113,8 +114,6 @@ async function getSession() {
         console.error("e", e)
     }
 }
-
-
 // Loads role data into the table on document load
 async function loadLoginRoles() {
     try {
