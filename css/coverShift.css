@@ -21,3 +21,8 @@ input.OrigShift,
 input.shiftCov {
     width: 75%
 }
+
+#ListOfTAs {
+    margin-top: 100px;
+    text-align: center;
+}
