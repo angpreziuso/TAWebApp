@@ -132,6 +132,7 @@
     </div>
 
     <ul id="myUL">
+        <li></li>
     </ul>
 
     <script>
@@ -155,6 +156,15 @@
                 div.style.display = "none";
             }
         }
+
+        // Add a "checked" symbol when clicking on a list item
+        var list = document.querySelector('ul');
+        list.addEventListener('click', function(ev) {
+            if (ev.target.tagName === 'LI') {
+                ev.target.classList.toggle('checked');
+            }
+        }, false);
+
         // Create a new list item when clicking on the "Add" button
         function newElement() {
             var li = document.createElement("li");
@@ -182,27 +192,6 @@
             }
         }
     </script>
-    <script>
-        const viewControl = async() => {
-            const visitsResponse = await fetch("api/acnt/sessions.php", {
-                credentials: "same-origin"
-            })
-
-            const resp = await visitsResponse.json()
-
-            switch (resp.role) {
-                case 1:
-                    break;
-                case 2:
-                    break;
-
-                default:
-                    break;
-            }
-        }
-    </script>
-
-
 
 </body>
 
