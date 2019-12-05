@@ -62,11 +62,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 var link = document.createTextNode(questionDescription.innerHTML);    
                 console.log(link);    
                 question.appendChild(link);    
-                question.href = "#";  
-
-                    // question.innerHTML = questionDescription;
-
-                    
+                question.href = "#";      
                 cell1.appendChild(question);    
                 cell2.innerHTML = "Comes from database email";    
                 cell3.innerHTML = "0";
