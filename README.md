@@ -12,13 +12,6 @@ This web application implements the current Teacher’s Assistant service ran by
 7. Finally, repeat steps 3, 4, and 5 using the pasted contents of `clef/sql/seed_schedule.sql`
 8. At this point the system should be ready to use
 
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
 ## Roles
 
 Students will be able to log into their course that they have come for help with and see a forum page, similar to Piazza where students will be able to post anonymous questions that can be answered by the TA or another student. Students will also be able to add themselves to a queue for one on one time with a TA. 
