@@ -52,10 +52,10 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-Josh Ehrlich
-Nathan Moore
-Brandon Parr
-Angela Preziuso
+* [Josh Ehrlich]()
+* [Nathan Moore](https://github.com/nathan-moore-97/)
+* [Brandon Parr]()
+* [Angela Preziuso](https://github.com/angpreziuso/)
 
 ## License
 
