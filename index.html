@@ -338,7 +338,14 @@
                 x.style.display = "block";
                 break;
             default:
-                console.error("Unable to find role")
+                var x = document.getElementById("nav");
+                x.style.display = "none";
+                var x = document.getElementById("index");
+                x.style.display = "block";
+                var x = document.getElementById("TA");
+                x.style.display = "none";
+                var x = document.getElementById("admin");
+                x.style.display = "none";
         }
     }
 </script>
