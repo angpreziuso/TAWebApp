@@ -69,13 +69,21 @@ async function populateTAShifts() {
         })
         const shifts = await response.json()
              console.log(shifts);
-        shifts.forEach(function(shift) {
-            document.getElementById("ListOfTAs").appendChild(genRoleOption(role))
+            shifts.forEach(function(shift) {
+            document.getElementById("ListOfTAs").appendChild(genTAList(shift));
            
         })
     } catch (e) {
         console.error("e", e)
     }
+}
+
+// Dealing with pass by reference bs
+function genTAList(shift) {
+    var opt = document.createElement('option')
+    opt.appendChild(document.createTextNode("Hello"));
+    opt.value = shift.TAList;
+    return opt
 }
 
 // Dealing with pass by reference bs
