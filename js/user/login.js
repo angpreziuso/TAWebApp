@@ -59,6 +59,8 @@ const determineHome = async (role) => {
             x.style.display = "none";
             break;
         case 2:
+            var x = document.getElementById("nav");
+            x.style.display = "block";
             var x = document.getElementById("index");
             x.style.display = "none";
             var x = document.getElementById("TA");
@@ -75,6 +77,8 @@ const determineHome = async (role) => {
             x.style.display = "none";
             break;
         case 4:
+            var x = document.getElementById("nav");
+            x.style.display = "block";
             var x = document.getElementById("index");
             x.style.display = "none";
             var x = document.getElementById("TA");
