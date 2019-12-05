@@ -132,45 +132,29 @@
     </div>
 
     <ul id="myUL">
-        <li></li>
     </ul>
-    
+
     <script>
-            const visitsResponse = await fetch("api/acnt/sessions.php", {
-                credentials: "same-origin"
-            })
+        // Create a "close" button and append it to each list item
+        var myNodelist = document.getElementsByTagName("LI");
+        var i;
+        for (i = 0; i < myNodelist.length; i++) {
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            myNodelist[i].appendChild(span);
+        }
 
-            const resp = await visitsResponse.json()
-
-            switch (resp.role) {
-                case 2:
-                    // Create a "close" button and append it to each list item
-                    var myNodelist = document.getElementsByTagName("LI");
-                    var i;
-                    for (i = 0; i < myNodelist.length; i++) {
-                        var span = document.createElement("SPAN");
-                        var txt = document.createTextNode("\u00D7");
-                        span.className = "close";
-                        span.appendChild(txt);
-                        myNodelist[i].appendChild(span);
-                    }
-
-                    // Click on a close button to hide the current list item
-                    var close = document.getElementsByClassName("close");
-                    var i;
-                    for (i = 0; i < close.length; i++) {
-                        close[i].onclick = function () {
-                            var div = this.parentElement;
-                            div.style.display = "none";
-                        }
-                    }
-                    break;
-                default:
-                    console.error("unable to find role")
+        // Click on a close button to hide the current list item
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+                var div = this.parentElement;
+                div.style.display = "none";
             }
-    </script>
-    
-    <script>
+        }
         // Create a new list item when clicking on the "Add" button
         function newElement() {
             var li = document.createElement("li");
@@ -198,6 +182,27 @@
             }
         }
     </script>
+    <script>
+        const viewControl = async() => {
+            const visitsResponse = await fetch("api/acnt/sessions.php", {
+                credentials: "same-origin"
+            })
+
+            const resp = await visitsResponse.json()
+
+            switch (resp.role) {
+                case 1:
+                    break;
+                case 2:
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    </script>
+
+
 
 </body>
 
