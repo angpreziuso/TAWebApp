@@ -47,10 +47,12 @@ const determineHome = async (role) => {
 
     switch (role) {
         case 1:
-            var x = document.getElementById("index");
+            var x = document.getElementById("nav");
             x.style.display = "block";
-            var x = document.getElementById("TA");
+            var x = document.getElementById("index");
             x.style.display = "none";
+            var x = document.getElementById("TA");
+            x.style.display = "block";
             var x = document.getElementById("admin");
             x.style.display = "none";
             break;
