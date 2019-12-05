@@ -4,10 +4,6 @@ const login = async eventObj => {
     const password = document.getElementById("loginPasswordField").value
     const role = document.getElementById("loginRoleOptions").value
 
-    console.log(email);
-    console.log(password);
-    console.log(role);
-
     cred = {
         origin: "login-submit",
         role: role,
