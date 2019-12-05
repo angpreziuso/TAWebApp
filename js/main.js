@@ -68,11 +68,14 @@ async function populateTAShifts() {
             },
         })
         const shifts = await response.json()
-            shifts.forEach(function(shift) {
+        shifts.forEach(function(shift) {
+                console.log(shift)
                 var list1 = document.getElementById("ListOfTAs1");
                 var list2 = document.getElementById("ListOfTAs2");
-           list1.appendChild(genTAList(shift));
-           list2.appendChild(genTAList(shift));
+
+                var TAOption = shift["FirstName"] + shift["LastName"] + shift["BeginTime"] + shift["EndTime"] + shift["ShiftDay"] 
+                list1.appendChild(genTAList(TAOption));
+                list2.appendChild(genTAList(TAOption));
            
         })
     } catch (e) {
@@ -83,7 +86,7 @@ async function populateTAShifts() {
 // Dealing with pass by reference bs
 function genTAList(shift) {
     var opt = document.createElement('option')
-    opt.appendChild(document.createTextNode(shift[0]));
+    opt.appendChild(document.createTextNode(shift));
     opt.value = shift;
     return opt
 }
