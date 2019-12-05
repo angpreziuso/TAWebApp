@@ -62,11 +62,11 @@ Angela Preziuso
 LALALA
 
 ## Acknowledgments
--- https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_start_page&stacked=h
--- https://www.w3schools.com/howto/howto_css_login_form.asp
--- https://www.w3schools.com/howto/howto_css_signup_form.asp
--- https://w3.cs.jmu.edu/lam2mo/cs432_2019_08/calendar.html
--- https://www.w3schools.com/howto/howto_js_todolist.asp
+* https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_start_page&stacked=h
+* https://www.w3schools.com/howto/howto_css_login_form.asp
+* https://www.w3schools.com/howto/howto_css_signup_form.asp
+* https://w3.cs.jmu.edu/lam2mo/cs432_2019_08/calendar.html
+* https://www.w3schools.com/howto/howto_js_todolist.asp
 
 
 * Inspiration
