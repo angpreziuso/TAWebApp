@@ -6,14 +6,22 @@
 
     $input = file_get_contents('php://input');
     $input = json_decode($input);
-    if (!verify_use($input)) {
-        $resp["error"] = "You do not have permission to access this data";
-        echo json_encode($resp);
-        exit();
-    }
+
+    // This aint gonna work 
+    // if (!verify_use($input)) {
+    //     $resp["error"] = "You do not have permission to access this data";
+    //     echo json_encode($resp);
+    //     exit();
+    // }
 
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-        $resp["error"] = "api/data/shifts.php ->".$_SERVER["REQUEST_METHOD"].": NOT IMPLEMENTED";
+        // clef_user.userid, clef_user.firstName, clef_user.lastName, shift.shiftDay, shift.beginTime, shift.endTime, courseID
+        echo query("SELECT CLEF_USER.UserID, CLEF_USER.FirstName, CLEF_USER.LastName, SHIFT.ShiftDay, SHIFT.BeginTime, SHIFT.EndTime, courseID, scheduled FROM SHIFT_DUTY INNER JOIN SHIFT ON (SHIFT_DUTY.ShiftID = SHIFT.ShiftID) INNER JOIN CLEF_USER ON (SHIFT_DUTY.UserID = CLEF_USER.UserID)");
+        exit();
+        // $stmt = mysqli_prepare($dbLink, $sql);
+        // mysqli_stmt_execute($stmt);
+        // $results =  mysqli_stmt_get_result($stmt);
+        // $resp = mysqli_fetch_assoc($results);
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // POST A NEW SHIFT SLOT TO THE DB
