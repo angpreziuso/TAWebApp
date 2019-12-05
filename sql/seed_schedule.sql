@@ -69,15 +69,15 @@ INSERT INTO SHIFT (BeginTime, EndTime, ShiftDay, CourseID) VALUES ("05:00:00", "
 
 -- five students available to work a particular day
 INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (2, 2, 12, 0);
-INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (2, 2, 30, 1);
+INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (3, 2, 30, 1);
 INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (4, 2, 12, 0);
-INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (4, 2, 30, 1);
+INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (14, 2, 30, 1);
 INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (7, 2, 14, 0);
-INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (7, 2, 31, 1);
+INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (9, 2, 31, 1);
 INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (8, 2, 14, 0);
-INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (8, 2, 32, 1);
+INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (11, 2, 32, 1);
 INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (10, 2, 15, 0);
-INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (10, 2, 33, 1);
+INSERT INTO SHIFT_DUTY (UserID, RoleID, ShiftID, Scheduled) VALUES (15, 2, 33, 1);
 
 -- simulate some pending shift change requests
 INSERT INTO SHIFT_CHANGE_REQ (DutyAID, DutyBID, Approved) VALUES (1, 2, 0);
