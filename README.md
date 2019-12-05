@@ -19,23 +19,6 @@ TA’s will be able to see and respond to the forum posts written by the student
 Administrators will create, edit, and administer a schedule to the website. The schedule will be based on the inputs given by the TA’s. An administrator is the only person that can confirm and commit schedule changes between TA’s. 
 Professors that is in the works.
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
@@ -79,11 +62,11 @@ Angela Preziuso
 LALALA
 
 ## Acknowledgments
-      https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_start_page&stacked=h
-https://www.w3schools.com/howto/howto_css_login_form.asp
-https://www.w3schools.com/howto/howto_css_signup_form.asp
-https://w3.cs.jmu.edu/lam2mo/cs432_2019_08/calendar.html
-https://www.w3schools.com/howto/howto_js_todolist.asp
+-- https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_start_page&stacked=h
+-- https://www.w3schools.com/howto/howto_css_login_form.asp
+-- https://www.w3schools.com/howto/howto_css_signup_form.asp
+-- https://w3.cs.jmu.edu/lam2mo/cs432_2019_08/calendar.html
+-- https://www.w3schools.com/howto/howto_js_todolist.asp
 
 
 * Inspiration
