@@ -66,6 +66,10 @@ p#TAHours {
     display: none;
 }
 
+#stuNav {
+    display: none;
+}
+
 #index {
     display: block;
 }
