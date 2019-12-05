@@ -28,7 +28,7 @@ As a TA you will be able to swap a shift with someone.  There will be two option
 The calendar has all of the TA's schedules posted for everyone to see.  This was TA's know when their normal shifts are, unless swapped a week in advance so the admin can modify the calendar.  The students can also see when the TAs work and for which classes.
 
 ## Data Model
-![CLEF Database Schema ver2.2](clef_schema_ver2.2.png)
+![CLEF Database Schema ver2.2](./clef_schema_v2.2.png)
 
 ## Authors
 
