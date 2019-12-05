@@ -70,3 +70,18 @@ console.log("loaded");
     // }
 
 });
+
+
+async function shift_demo() {
+    const response = await fetch("api/data/shifts.php", {
+        method: "GET",
+        credentials: "same-origin",
+        origin: "shift_demo",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    const rj = await response.json()
+    console.log(rj);
+}
