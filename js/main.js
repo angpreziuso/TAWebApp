@@ -68,11 +68,15 @@ async function populateTAShifts() {
             },
         })
         const shifts = await response.json()
-             console.log(shifts);
             shifts.forEach(function(shift) {
-            document.getElementById("ListOfTAs").appendChild(genTAList(shift));
-           
-        })
+                console.log(shift)
+                document.getElementById("ListOfTAs").appendChild(genTAList(shift));
+            })
+
+            console.log(shifts.filter(function(s){
+                return s.FirstName === "Harry";
+            }))
+
     } catch (e) {
         console.error("e", e)
     }
@@ -93,6 +97,23 @@ function genRoleOption(role) {
     opt.value = role.RoleID;
     return opt
 }
+
+
+async function getSession() {
+    try {
+        const response = await fetch("api/data/sessions.php", {
+            method: "GET",
+            headers: {
+                'Content-Type': 'response/json'
+            },
+        })
+        const session = await response.json()
+        return session
+    } catch (e) {
+        console.error("e", e)
+    }
+}
+
 
 // Loads role data into the table on document load
 async function loadLoginRoles() {
