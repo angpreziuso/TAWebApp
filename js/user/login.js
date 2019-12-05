@@ -48,6 +48,8 @@ const determineHome = async (role) => {
     switch (role) {
         case 1:
             var x = document.getElementById("nav");
+            x.style.display = "none";
+            var x = document.getElementById("stuNav");
             x.style.display = "block";
             var x = document.getElementById("index");
             x.style.display = "none";
@@ -59,6 +61,8 @@ const determineHome = async (role) => {
         case 2:
             var x = document.getElementById("nav");
             x.style.display = "block";
+            var x = document.getElementById("stuNav");
+            x.style.display = "none";
             var x = document.getElementById("index");
             x.style.display = "none";
             var x = document.getElementById("TA");
@@ -67,6 +71,10 @@ const determineHome = async (role) => {
             x.style.display = "none";
             break;
         case 3:
+            var x = document.getElementById("nav");
+            x.style.display = "none";
+            var x = document.getElementById("stuNav");
+            x.style.display = "none";
             var x = document.getElementById("index");
             x.style.display = "block";
             var x = document.getElementById("TA");
@@ -77,6 +85,8 @@ const determineHome = async (role) => {
         case 4:
             var x = document.getElementById("nav");
             x.style.display = "block";
+            var x = document.getElementById("stuNav");
+            x.style.display = "none";
             var x = document.getElementById("index");
             x.style.display = "none";
             var x = document.getElementById("TA");
