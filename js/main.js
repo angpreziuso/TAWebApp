@@ -70,7 +70,7 @@ async function populateTAShifts() {
         const shifts = await response.json()
              console.log(shifts);
         shifts.forEach(function(shift) {
-            document.getElementById("TAShifts").appendChild(genRoleOption(role))
+            document.getElementById("ListOfTAs").appendChild(genRoleOption(role))
            
         })
     } catch (e) {
