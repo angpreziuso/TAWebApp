@@ -59,6 +59,25 @@ function populateData() {
     loadLoginRoles()
 }
 
+async function populateTAShifts() {
+    try {
+        const response = await fetch("api/data/shifts.php", {
+            method: "GET",
+            headers: {
+                'Content-Type': 'response/json'
+            },
+        })
+        const shifts = await response.json()
+             console.log(shifts);
+        shifts.forEach(function(shift) {
+            document.getElementById("TAShifts").appendChild(genRoleOption(role))
+           
+        })
+    } catch (e) {
+        console.error("e", e)
+    }
+}
+
 // Dealing with pass by reference bs
 function genRoleOption(role) {
     var opt = document.createElement('option')

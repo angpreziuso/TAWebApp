@@ -62,6 +62,26 @@ p#TAHours {
     color: white;
 }
 
+#nav {
+    display: none;
+}
+
+#index {
+    display: block;
+}
+
+#TA {
+    display: block;
+}
+
+#admin {
+    display: block;
+}
+
+#foot {
+    display: block;
+}
+
 .cancelbtn {
     background-color: black;
     font-size: 20px;
