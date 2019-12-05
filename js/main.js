@@ -60,6 +60,13 @@ function populateData() {
 }
 
 async function populateTAShifts() {
+    // get my session data
+    const sr = await fetch("api/acnt/sessions.php", {
+        credentials: "same-origin"
+    })
+
+    const sesh = await sr.json()
+
     try {
         const response = await fetch("api/data/shifts.php", {
             method: "GET",
@@ -68,25 +75,34 @@ async function populateTAShifts() {
             },
         })
         const shifts = await response.json()
-        shifts.forEach(function(shift) {
-                var list1 = document.getElementById("ListOfTAs1");
-                var list2 = document.getElementById("ListOfTAs2");
-               
-                var beginTime = shift["BeginTime"];
-                var endTime = shift["EndTime"];
-               
-                var TAOption = shift["FirstName"] + " " + shift["LastName"] + ", " + shift["ShiftDay"] + ", " + beginTime.substring(1,2) + " - " + endTime.substring(1,2) 
-                list1.appendChild(genTAList(TAOption));
-                list2.appendChild(genTAList(TAOption));
-           
+
+        myShifts = shifts.filter(function(s) {
+            return parseInt(s.UserID) === parseInt(sesh.userID) // bad jank im sorry
         })
+
+        myShifts.forEach(function(shift){
+            var list1 = document.getElementById("ListOfTAs1");
+            var beginTime = shift["BeginTime"];
+            var endTime = shift["EndTime"];
+            var TAOption = shift["FirstName"] + " " + shift["LastName"] + ", " + shift["ShiftDay"] + ", " + beginTime.substring(1,2) + " - " + endTime.substring(1,2) 
+            list1.appendChild(genTAShiftList(TAOption));
+        })
+
+        shifts.forEach(function(shift) {
+            var list2 = document.getElementById("ListOfTAs2");
+            var beginTime = shift["BeginTime"];
+            var endTime = shift["EndTime"];
+            var TAOption = shift["FirstName"] + " " + shift["LastName"] + ", " + shift["ShiftDay"] + ", " + beginTime.substring(1,2) + " - " + endTime.substring(1,2) 
+            list2.appendChild(genTAShiftList(TAOption));
+        })
+        
     } catch (e) {
         console.error("e", e)
     }
 }
 
 // Dealing with pass by reference bs
-function genTAList(shift) {
+function genTAShiftList(shift) {
     var opt = document.createElement('option')
     opt.appendChild(document.createTextNode(shift));
     opt.value = shift;

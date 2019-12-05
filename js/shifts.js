@@ -6,8 +6,6 @@ var list1 = document.getElementById("ListOfTAs1").value;
 var list2 = document.getElementById("ListOfTAs2").value;
 
 submit.addEventListener("click", function(){
-    // do something
-
     fetchShift();
 })
 
@@ -29,6 +27,7 @@ request = {
 
 async function fetchShift()
 {
+
     console.log(JSON.stringify(request))
     try {
         const response = await fetch("api/data/shifts.php", {
