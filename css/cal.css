@@ -71,7 +71,7 @@ a:hover {
 
 #menu ul li a:hover {
     color: black;
-    background:  repeat-x;
+    background: repeat-x;
 }
 
 #contentwrap {
@@ -92,6 +92,7 @@ a:hover {
 }
 
 #content h3 {
+    text-align: center;
     margin: 0;
     color: #232323;
     font-size: 14px;
