@@ -75,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $_SESSION["userID"] = $row["UserID"];
             $_SESSION["role"] = $row["RoleID"];
             $resp["response"] = "Welcome, " . $row["FirstName"] . "!";
+            $resp["role"] = $_SESSION["role"];
             echo json_encode($resp);
             exit();
         }
