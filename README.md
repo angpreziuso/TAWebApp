@@ -19,31 +19,6 @@ TA’s will be able to see and respond to the forum posts written by the student
 Administrators will create, edit, and administer a schedule to the website. The schedule will be based on the inputs given by the TA’s. An administrator is the only person that can confirm and commit schedule changes between TA’s. 
 Professors that is in the works.
 
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
@@ -52,9 +27,9 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* [Josh Ehrlich]()
+* [Josh Ehrlich](https://github.com/joshehrlich24/)
 * [Nathan Moore](https://github.com/nathan-moore-97/)
-* [Brandon Parr]()
+* [Brandon Parr](https://github.com/parrbt/)
 * [Angela Preziuso](https://github.com/angpreziuso/)
 
 ## License
