@@ -2,7 +2,15 @@
 
 This web application implements the current Teacher’s Assistant service ran by James Madison University.  It is a system for helping students that involves asking students to place their names, classes, and problems on a whiteboard to be entered into a queue to be helped.
 
-### Running Program **PAHLEASE HALP**
+### Building the project
+Clone the git repository, naming it clef to the filesystem that hosts the webpages XAMPP (LAMP,  WAMP, etc.).
+After the code has been pulled into your XAMPP (LAMP,  WAMP, etc.) environment, start MySQL Database and Apache Server.  
+In any text editor of your choice, open clef/sql/clef_ddl.sql, and select and copy all of the text in the document. 
+Open phpMyAdmin and navigate to the SQL tab.
+Paste the contents of clef/sql/clef_ddl.sql into the SQL environment in phpMyAdmin. Hit Go. You should see a number of green rows that show the successful building of the database and seeding of some starter data. 
+Open another browser tab. Navigate to localhost/clef/api/data/seedDatabase.php. This step seeds the database with user data, and must be done this way to salt and hash their password correctly. 
+Finally, repeat steps 3, 4, and 5 using the pasted contents of clef/sql/seed_schedule.sql
+
 
 What things you need to install the software and how to install them
 
