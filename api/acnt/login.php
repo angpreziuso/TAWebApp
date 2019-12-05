@@ -1,6 +1,6 @@
 <?php
 
- require_once "../connect.php"; 
+require_once "../connect.php"; 
 
 //ClefUser --> UserID, UserEmail, Password, FirstName, LastName
 //UserRole --> UserID RoleID, StartTime, EndTime

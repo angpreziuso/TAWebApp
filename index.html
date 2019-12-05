@@ -22,7 +22,7 @@
     <link rel="icon" type="image/x-icon" href="pictures/favicon.ico" />
 </head>
 
-<body>
+<body onload="myFunction()">
 
     <div id="nav">
         <!-- Navbar -->
@@ -245,7 +245,6 @@
         </div>
     </div>
 
-
     <div id="TA">
         <iframe class="frame" src="http://www.piazza.com/" scrolling="no" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:500px;width:75%;border:none;overflow:hidden;margin-top:50px;"></iframe>
         <iframe class="queue" src="queue.html" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="float:right;height:500px;width:25%;border:none;overflow:hidden;margin-top:50px;"></iframe>
@@ -287,5 +286,57 @@
         </script>
     </div>
 </body>
+
+<script>
+    const myFunction = async() => {
+
+        console.log("in myFunction");
+        const visitsResponse = await fetch("api/data/visits.php", {
+            credentials: "same-origin"
+        })
+        const resp = await visitsResponse.json()
+
+        switch (resp.role) {
+            case 1:
+                var x = document.getElementById("index");
+                x.style.display = "block";
+                var x = document.getElementById("TA");
+                x.style.display = "none";
+                var x = document.getElementById("admin");
+                x.style.display = "none";
+                break;
+            case 2:
+                var x = document.getElementById("nav");
+                x.style.display = "block";
+                var x = document.getElementById("index");
+                x.style.display = "none";
+                var x = document.getElementById("TA");
+                x.style.display = "block";
+                var x = document.getElementById("admin");
+                x.style.display = "none";
+                break;
+            case 3:
+                var x = document.getElementById("index");
+                x.style.display = "block";
+                var x = document.getElementById("TA");
+                x.style.display = "none";
+                var x = document.getElementById("admin");
+                x.style.display = "none";
+                break;
+            case 4:
+                var x = document.getElementById("nav");
+                x.style.display = "block";
+                var x = document.getElementById("index");
+                x.style.display = "none";
+                var x = document.getElementById("TA");
+                x.style.display = "none";
+                var x = document.getElementById("admin");
+                x.style.display = "block";
+                break;
+            default:
+                console.error("Unable to find role")
+        }
+    }
+</script>
 
 </html>
