@@ -23,6 +23,9 @@ Professors that is in the works.
 As a TA you will have an availability form to fill out that allows you to choose what time or times you can/would like to work and what days.  It also asks for your full name, phone number, and email address.  Since the professors hired you, they have a specific course they already want you to TA for so you don’t have to specify class/course.
 This availability form also covers the entire semester. So if you need off for a specific day that you are scheduled you can use the Shift Cover part of the application.
 ### Swap Duties
+As a TA you will be able to swap a shift with someone.  There will be two option bars and you can select the shift you would like to change and the other option bar will contain the person who is swapping with you's shift. It will then be sent to an admin to approve it and then be entered into the database. 
+### Calendar/Schedule
+The calendar has all of the TA's schedules posted for everyone to see.  This was TA's know when their normal shifts are, unless swapped a week in advance so the admin can modify the calendar.  The students can also see when the TAs work and for which classes.
 
 
 
