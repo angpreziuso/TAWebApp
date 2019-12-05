@@ -68,7 +68,6 @@ async function populateTAShifts() {
             },
         })
         const shifts = await response.json()
-             console.log(shifts);
             shifts.forEach(function(shift) {
                 var list1 = document.getElementById("ListOfTAs1");
                 var list2 = document.getElementById("ListOfTAs2");
@@ -97,6 +96,21 @@ function genRoleOption(role) {
     return opt
 }
 
+
+async function getSession() {
+    try {
+        const response = await fetch("api/data/sessions.php", {
+            method: "GET",
+            headers: {
+                'Content-Type': 'response/json'
+            },
+        })
+        const session = await response.json()
+        return session
+    } catch (e) {
+        console.error("e", e)
+    }
+}
 // Loads role data into the table on document load
 async function loadLoginRoles() {
     try {
