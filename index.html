@@ -32,6 +32,8 @@
                         class="fa fa-bars"></i></a>
                 <a href="availability.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Availability</a>
                 <a href="coverShift.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Cover Shift</a>
+
+                <a href="" onclick="logout()" style="float: right" class="w3-bar-item w3-button w3-hide-small w3-padding-large">Logout</a>
             </div>
         </div>
     </div>
@@ -244,18 +246,11 @@
         </div>
     </div>
 
-    <div id="student">
-        <iframe class="frame" src="http://www.piazza.com/" scrolling="no" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:500px;width:75%;border:none;overflow:hidden;margin-top:50px;"></iframe>
-        <iframe class="queue" src="queue.html" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="float:right;height:500px;width:25%;border:none;overflow:hidden;margin-top:50px;"></iframe>
-        <iframe class="cal" src="cal.html" scrolling="no" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:600px;width:100%;border:none;overflow:hidden;margin-top:50px;"></iframe>
-    </div>
-
     <div id="TA">
         <iframe class="frame" src="http://www.piazza.com/" scrolling="no" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:500px;width:75%;border:none;overflow:hidden;margin-top:50px;"></iframe>
         <iframe class="queue" src="queue.html" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="float:right;height:500px;width:25%;border:none;overflow:hidden;margin-top:50px;"></iframe>
         <iframe class="cal" src="cal.html" scrolling="no" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:600px;width:100%;border:none;overflow:hidden;margin-top:50px;"></iframe>
     </div>
-
 
     <div id="admin">
         <iframe class="frame" src="shiftCoverTable.html" scrolling="no" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:500px;width:75%;border:none;overflow:hidden;margin-top:50px;"></iframe>
@@ -285,6 +280,7 @@
         </footer>
         <script src="js/main.js"></script>
         <script src="js/user/login.js"></script>
+        <script src="js/user/logout.js"></script>
         <script src="js/user/signup.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', populateData, false);
@@ -294,8 +290,6 @@
 
 <script>
     const viewControl = async() => {
-
-        console.log("in myFunction");
         const visitsResponse = await fetch("api/acnt/sessions.php", {
             credentials: "same-origin"
         })
@@ -304,6 +298,8 @@
 
         switch (resp.role) {
             case 1:
+                var x = document.getElementById("nav");
+                x.style.display = "none";
                 var x = document.getElementById("index");
                 x.style.display = "block";
                 var x = document.getElementById("TA");
@@ -322,6 +318,8 @@
                 x.style.display = "none";
                 break;
             case 3:
+                var x = document.getElementById("nav");
+                x.style.display = "none";
                 var x = document.getElementById("index");
                 x.style.display = "block";
                 var x = document.getElementById("TA");
