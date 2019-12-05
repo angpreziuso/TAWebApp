@@ -69,11 +69,13 @@ async function populateTAShifts() {
         })
         const shifts = await response.json()
         shifts.forEach(function(shift) {
-                console.log(shift)
                 var list1 = document.getElementById("ListOfTAs1");
                 var list2 = document.getElementById("ListOfTAs2");
-
-                var TAOption = shift["FirstName"] + shift["LastName"] + shift["BeginTime"] + shift["EndTime"] + shift["ShiftDay"] 
+               
+                var beginTime = shift["BeginTime"];
+                var endTime = shift["EndTime"];
+               
+                var TAOption = shift["FirstName"] + " " + shift["LastName"] + ", " + shift["ShiftDay"] + ", " + beginTime.substring(1,2) + " - " + endTime.substring(1,2) 
                 list1.appendChild(genTAList(TAOption));
                 list2.appendChild(genTAList(TAOption));
            
