@@ -34,6 +34,12 @@
         </div>
     </div>
 
+    <div id="ListOfTAs">
+        <!-- <h1>hello</h1> -->
+        <label id="positionLabel">Please select which shift you would like the change</label>
+        <select name="role" id="loginRoleOptions"></select>
+    </div>
+
     <form method="POST">
         <fieldset class="coverShift">
             <legend>Shift Cover Request</legend>
@@ -55,6 +61,10 @@
 
     <script src=js/main.js></script>
     <script src=js/shifts.js></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', populateTAShifts, false);
+    </script>
 
 </body>
 
