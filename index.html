@@ -22,7 +22,7 @@
     <link rel="icon" type="image/x-icon" href="pictures/favicon.ico" />
 </head>
 
-<body onload="myFunction()">
+<body onload="viewControl()">
 
     <div id="nav">
         <!-- Navbar -->
@@ -293,12 +293,13 @@
 </body>
 
 <script>
-    const myFunction = async() => {
+    const viewControl = async() => {
 
         console.log("in myFunction");
-        const visitsResponse = await fetch("api/data/visits.php", {
+        const visitsResponse = await fetch("api/acnt/sessions.php", {
             credentials: "same-origin"
         })
+
         const resp = await visitsResponse.json()
 
         switch (resp.role) {
